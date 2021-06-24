@@ -1,6 +1,12 @@
 export interface PayloadData { }
 
 /**
+ * OPCODE 1 HEARTBEAT
+ * @class HeartbeatData
+ */
+ export class HeartbeatData extends Number implements PayloadData { }
+
+/**
  * OPCODE 2 IDENTIFY
  * @class IdentifyData
  * @property { string } token
@@ -52,7 +58,7 @@ export class HelloData implements PayloadData {
 }
 
 /**
- * OPCODE 11 HEARTBEAT
- * @class HeartbeatData
+ * OPCODE 11 HEARTBEAT ACK
+ * @class HeartbeatACKData
  */
-export class HeartbeatData implements PayloadData { }
+export class HeartbeatACKData implements PayloadData { }

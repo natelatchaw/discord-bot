@@ -1,8 +1,23 @@
-import { HeartbeatData, HelloData, IdentifyData, PayloadData, ResumeData } from "./payloadData";
+import { HeartbeatACKData, HeartbeatData, HelloData, IdentifyData, PayloadData, ResumeData } from "./payloadData";
 
 export interface Payload {
     op: number;
-    d: PayloadData
+    d: PayloadData | number
+}
+
+/**
+ * OPCODE 1 HEARTBEAT
+ * @class Heartbeat
+ * @property { number } op - The OPCode identifying the payload
+ * @property { HeartbeatData } d - the payload's encapsulated data
+ */
+export class Heartbeat implements Payload {
+    public op: number = 2;
+    public d: HeartbeatData;
+
+    public constructor(data: number) {
+        this.d = data;
+    }
 }
 
 /**
@@ -41,26 +56,26 @@ export class Resume implements Payload {
  * @property { number } op - The OPCode identifying the payload
  * @property { HeartbeatData } d - the payload's encapsulated data
  */
-export class Heartbeat implements Payload {
+export class Hello implements Payload {
     public op: number = 10;
-    public d: HeartbeatData;
+    public d: HelloData;
 
-    public constructor(data: HeartbeatData = new HeartbeatData()) {
+    public constructor(data: HelloData) {
         this.d = data;
     }
 }
 
 /**
- * OPCODE 11 HEARTBEAT
- * @class Heartbeat
+ * OPCODE 11 HEARTBEATACK
+ * @class HeartbeatACK
  * @property { number } op - The OPCode identifying the payload
- * @property { HelloData } d - the payload's encapsulated data
+ * @property { HeartbeatData } d - the payload's encapsulated data
  */
-export class Hello implements Payload {
+export class HeartbeatACK implements Payload {
     public op: number = 11;
-    public d: HelloData;
+    public d: HeartbeatACKData;
 
-    public constructor(data: HelloData) {
+    public constructor(data: HeartbeatACKData = new HeartbeatACKData()) {
         this.d = data;
     }
 }
