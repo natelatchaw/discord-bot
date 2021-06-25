@@ -11,16 +11,14 @@ export class Heart {
     }
 
     public async beat(webSocket: WebSocket): Promise<void> {
-        const heartbeat: Heartbeat = new Heartbeat(++this.sequence);
-        const payload: string = JSON.stringify(heartbeat);
+        const payload: Heartbeat = new Heartbeat(++this.sequence);
+        const data: string = JSON.stringify(payload);
         return await new Promise((resolve: () => void, reject: (reason?: Error) => void) => {
-            setTimeout(() => {
-                console.log(`SEND OPCODE ${heartbeat.op}`)
-                webSocket.send(payload, (error: Error | undefined) => {
-                    if (error) reject(error);
-                    else resolve();
-                });
-            }, this.interval)
+            console.log(`SEND OPCODE ${payload.op}`);
+            webSocket.send(data, (error: Error | undefined) => {
+                if (error) reject(error);
+                setTimeout(resolve, this.interval);
+            });
         });
     }
 }
