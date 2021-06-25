@@ -12,7 +12,7 @@ export interface Payload {
  * @property { HeartbeatData } d - the payload's encapsulated data
  */
 export class Heartbeat implements Payload {
-    public op: number = 2;
+    public op: number = 1;
     public d: HeartbeatData;
 
     public constructor(data: number) {
