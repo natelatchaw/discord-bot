@@ -3,6 +3,7 @@ import { URL } from "url";
 import { Dispatch, Hello, Identify, Payload, Resume } from "./models/payload";
 import { Heart } from "./models/heart";
 import { IdentifyData, ResumeData } from "./models/payloadData";
+import { env } from "process";
 
 export class Core {
     private server: URL;
@@ -133,5 +134,5 @@ export class Core {
 }
 
 const endpoint: URL = new URL('wss://gateway.discord.gg/?v=9&encoding=json');
-const token: string = '';
+const token: string = env.TOKEN ?? '';
 const core: Core = new Core(endpoint, token);
