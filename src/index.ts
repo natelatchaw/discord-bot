@@ -133,5 +133,5 @@ export class Core {
 }
 
 const endpoint: URL = new URL('wss://gateway.discord.gg/?v=9&encoding=json');
-const token: string = 'NzAyNjE4MzYwOTkwNjYyNzU2.XqCqVw.CDfUAvz96oVZxu3AXMzJnu9QYN4';
+const token: string = '';
 const core: Core = new Core(endpoint, token);
