@@ -15,7 +15,8 @@ export class Heart {
         const data: string = JSON.stringify(payload);
         return await new Promise((resolve: () => void, reject: (reason?: Error) => void) => {
             console.log(`SEND OPCODE ${payload.op}`);
-            webSocket.send(data, (error: Error | undefined) => {
+            console.log(JSON.stringify(payload.d));
+            webSocket.send(data, (error?: Error) => {
                 if (error) reject(error);
                 setTimeout(resolve, this.interval);
             });

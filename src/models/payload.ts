@@ -1,8 +1,27 @@
-import { HeartbeatACKData, HeartbeatData, HelloData, IdentifyData, PayloadData, ResumeData } from "./payloadData";
+import { DispatchData, HeartbeatACKData, HeartbeatData, HelloData, IdentifyData, PayloadData, ResumeData } from "./payloadData";
 
 export interface Payload {
     op: number;
-    d: PayloadData | number
+    d: PayloadData | number;
+    s?: number;
+    t?: string;
+}
+
+/**
+ * OPCODE 1 DISPATCH
+ * @class Dispatch
+ * @property { number } op - The OPCode identifying the payload
+ * @property { HeartbeatData } d - the payload's encapsulated data
+ */
+export class Dispatch implements Payload {
+    public op: number = 0;
+    public d: DispatchData;
+    public s?: number = undefined;
+    public t?: string = undefined;
+
+    public constructor(data: DispatchData) {
+        this.d = data;
+    }
 }
 
 /**
@@ -14,6 +33,8 @@ export interface Payload {
 export class Heartbeat implements Payload {
     public op: number = 1;
     public d: HeartbeatData;
+    public s?: number = undefined;
+    public t?: string = undefined;
 
     public constructor(data: number) {
         this.d = data;
@@ -29,6 +50,8 @@ export class Heartbeat implements Payload {
 export class Identify implements Payload {
     public op: number = 2;
     public d: IdentifyData;
+    public s?: number = undefined;
+    public t?: string = undefined;
 
     public constructor(data: IdentifyData) {
         this.d = data;
@@ -44,6 +67,8 @@ export class Identify implements Payload {
 export class Resume implements Payload {
     public op: number = 6;
     public d: ResumeData;
+    public s?: number = undefined;
+    public t?: string = undefined;
 
     public constructor(data: ResumeData) {
         this.d = data;
@@ -59,6 +84,8 @@ export class Resume implements Payload {
 export class Hello implements Payload {
     public op: number = 10;
     public d: HelloData;
+    public s?: number = undefined;
+    public t?: string = undefined;
 
     public constructor(data: HelloData) {
         this.d = data;
@@ -74,6 +101,8 @@ export class Hello implements Payload {
 export class HeartbeatACK implements Payload {
     public op: number = 11;
     public d: HeartbeatACKData;
+    public s?: number = undefined;
+    public t?: string = undefined;
 
     public constructor(data: HeartbeatACKData = new HeartbeatACKData()) {
         this.d = data;

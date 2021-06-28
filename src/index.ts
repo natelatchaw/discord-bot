@@ -1,17 +1,20 @@
 import WebSocket from "ws";
 import { URL } from "url";
-import { Hello, Payload, Resume } from "./models/payload";
+import { Dispatch, Hello, Identify, Payload, Resume } from "./models/payload";
 import { Heart } from "./models/heart";
-import { ResumeData } from "./models/payloadData";
+import { IdentifyData, ResumeData } from "./models/payloadData";
 
 export class Core {
     private server: URL;
+    private token: string;
     private webSocket: WebSocket;
     private heart: Heart;
     private acknowledged: boolean;
+    private session_id?: string;
 
-    public constructor(server: URL) {
+    public constructor(server: URL, token: string) {
         this.server = server;
+        this.token = token;
         this.webSocket = new WebSocket(this.server);
         this.heart = new Heart(Number.MAX_SAFE_INTEGER);
         this.attachListeners();
@@ -19,15 +22,14 @@ export class Core {
     }
 
     private attachListeners(): void {
-        //this.webSocket.on('message', (data: WebSocket.Data) => this.onMessage(data));
-        //this.webSocket.on('close', (code: number, reason: string) => this.onClose(code, reason));
         this.webSocket.on('message', this.onMessage);
         this.webSocket.on('close', this.onClose); 
     }
 
     public async send(payload: Payload): Promise<void> {
         const data: string = JSON.stringify(payload);
-        return await new Promise((resolve: () => void, reject: (reason?: Error) => void) => {  
+        return new Promise((resolve: () => void, reject: (reason?: Error) => void) => {  
+            console.log(`SEND OPCODE ${payload.op}`);
             this.webSocket.send(data, (error?: Error) => {
                 if (error) reject(error);
                 else resolve();
@@ -35,38 +37,101 @@ export class Core {
         });
     }
 
+    //#region EVENTS
+
+    /**
+     * @event onMessage - Event invoked on receipt of websocket message
+     * @param { WebSocket.Data } data 
+     */
     private onMessage = async (data: WebSocket.Data) => {
         const payload: Payload = JSON.parse(data.toString());
         console.log(`RECV OPCODE ${payload.op}`);
-        if (payload.op == 10) await this.beginHeartbeat(payload as Hello);
-        if (payload.op == 1) await this.heart.beat(this.webSocket);
+        console.log(JSON.stringify(payload));
+        if (payload.op == 0) await this.onDispatch(payload as Dispatch);
+        if (payload.op == 1) await this.onHeartbeat();
+        if (payload.op == 10) await this.onHello(payload as Hello);
         if (payload.op == 11) this.acknowledged = true;
     }
 
-    private async beginHeartbeat(payload: Hello) {
-        this.heart.interval = payload.d.heartbeat_interval;
-        while (true) await this.heart.beat(this.webSocket);
-        {   
-            //console.log(`Acknowledged? ${this.acknowledged}`)
-            //if (this.acknowledged) continue;
-            //this.restart();
-        }
-    }
-    
+    /**
+     * @event onMessage - Event invoked on receipt of websocket close
+     * @param { number } code
+     * @param { string } reason 
+     */
     public onClose = (code: number, reason: string) => {
         console.log(`RECV CLCODE ${code}: ${reason}`);
     }
 
-    public async restart() {
+    //#endregion
+
+    //#region OPCODE RESPONSES
+
+    /**
+     * @function onDispatch - Invoked on receipt of OPCODE 0 DISPATCH
+     */
+    private async onDispatch(payload: Dispatch) {
+        if (payload.t == 'READY') {
+            this.session_id = payload.d.session_id;
+        }
+    }
+
+    /**
+     * @function onHeartbeat - Invoked on receipt of OPCODE 1 HEARTBEAT
+     */
+    private async onHeartbeat() {
+        await this.heart.beat(this.webSocket);
+    }
+
+    /**
+     * @function onHello - Invoked on receipt of OPCODE 10 HELLO
+     * @param { Hello } payload
+     */
+    private async onHello(payload: Hello) {
+        this.heart.interval = payload.d.heartbeat_interval;
+        while (true)
+        {
+            if (this.heart.sequence == 1) await this.identify();
+            this.acknowledged = false;
+            await this.heart.beat(this.webSocket);
+            if (this.acknowledged) continue;
+            else this.reconnect();
+        }
+    }
+
+    /**
+     * @function reconnect - Invoke to reset the websocket and attempt to resume
+     */
+    public async reconnect() {
         this.webSocket.close(1012);
         this.webSocket = new WebSocket(this.server);
-        this.attachListeners();
-        const token: string = '';
-        const session_id: string = '';
-        const seq: number = this.heart.sequence;
-        await this.send(new Resume(new ResumeData(token, session_id, seq)));
+        if (this.session_id == undefined) return;
+        const data: ResumeData = new ResumeData(this.token, this.session_id, this.heart.sequence);
+        const payload: Resume = new Resume(data);
+        await this.send(payload);
     }
+
+    //#endregion
+
+    //#region CONNECTION MANAGEMENT
+
+    /**
+     * @function identify - Invoke to authenticate to the websocket
+     */
+    private async identify() {
+        const intents: number = 0;
+        const properties: any = {
+            '$os': 'linux',
+            '$browser': 'library',
+            '$device': 'library',
+        };
+        const data: IdentifyData = new IdentifyData(this.token, intents, properties);
+        const payload: Identify = new Identify(data);
+        await this.send(payload);
+    }
+
+    //#endregion
 }
 
-const core: Core = new Core(new URL('wss://gateway.discord.gg/?v=9&encoding=json'));
-let acknowledged: boolean = false;
+const endpoint: URL = new URL('wss://gateway.discord.gg/?v=9&encoding=json');
+const token: string = 'NzAyNjE4MzYwOTkwNjYyNzU2.XqCqVw.CDfUAvz96oVZxu3AXMzJnu9QYN4';
+const core: Core = new Core(endpoint, token);
