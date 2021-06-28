@@ -3,7 +3,7 @@ import { URL } from "url";
 import { Dispatch, Hello, Identify, Payload, Resume } from "./models/payload";
 import { Heart } from "./models/heart";
 import { IdentifyData, ResumeData } from "./models/payloadData";
-import { env } from "process";
+import dotenv from 'dotenv';
 
 export class Core {
     private server: URL;
@@ -89,9 +89,9 @@ export class Core {
      */
     private async onHello(payload: Hello) {
         this.heart.interval = payload.d.heartbeat_interval;
+        await this.identify();
         while (true)
         {
-            if (this.heart.sequence == 1) await this.identify();
             this.acknowledged = false;
             await this.heart.beat(this.webSocket);
             if (this.acknowledged) continue;
@@ -133,6 +133,8 @@ export class Core {
     //#endregion
 }
 
+dotenv.config();
 const endpoint: URL = new URL('wss://gateway.discord.gg/?v=9&encoding=json');
-const token: string = env.TOKEN ?? '';
+const token: string = process.env.TOKEN ?? '';
+console.log(`Token: ${token}`);
 const core: Core = new Core(endpoint, token);
