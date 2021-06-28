@@ -5,19 +5,17 @@ export type Resolution = (value?: any) => void;
 export type Rejection = (reason?: Error) => void;
 
 export class Client {
-    private endpoint: URL;
     private webSocket: WebSocket;
 
     public constructor(endpoint: URL) {
-        this.endpoint = endpoint;
         this.webSocket = new WebSocket(endpoint);
-        this.attachListeners();
     }
 
-    private attachListeners(): void {
-        this.webSocket.on('open', this.onOpen);
-        this.webSocket.on('close', this.onClose);
-    }
+    public open = (listener: () => void) => this.webSocket.on('open', listener);
+
+    public close = (listener: (code: number, reason: string) => void) => this.webSocket.on('close', listener);
+
+    public on = (listener: (data: WebSocket.Data) => void) => this.webSocket.on('message', listener);
 
     /**
      * @function send
@@ -32,13 +30,4 @@ export class Client {
             });
         });
     }
-
-    public onOpen = async () => {
-        console.log(`Connection to ${this.endpoint.host} established.`);
-    };
-
-    public onClose = async (code: number, reason: string) => {
-        console.log(`Connection to ${this.endpoint.host} terminated.`);
-        console.log(`Reason: Code ${code} - ${reason}`)
-    };
 }
