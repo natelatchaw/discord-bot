@@ -2,6 +2,7 @@ import { URL } from 'url';
 import WebSocket from 'ws';
 import { Client } from "./client";
 import { Console } from "./console";
+import { Guild } from './models/interface';
 import { Payload } from "./models/payload";
 import { Dispatch } from "./models/payload/dispatch";
 import { GuildCreate } from './models/payload/dispatch/guildCreate';
@@ -55,7 +56,7 @@ export class Core {
     private onMessage = async (data: WebSocket.Data) => {
         const payload: Payload = JSON.parse(data.toString());
         Console.log(`RECV OPCODE ${payload.op}`);
-        Console.warn(JSON.stringify(payload));
+        //Console.warn(JSON.stringify(payload));
         if (payload.op == 0) await this.onDispatch(payload as Dispatch);
         if (payload.op == 1) await this.onHeartbeat();
         if (payload.op == 10) await this.onHello(payload as Hello);
@@ -86,7 +87,7 @@ export class Core {
                 break;
             case 'GUILD_CREATE':
                 const guildCreate: GuildCreate = payload as GuildCreate;
-                
+                Console.highlight(`Received guild ${guildCreate.d.name}`);
             default:
                 break;
         }
