@@ -1,4 +1,4 @@
-import { Payload, PayloadData } from "./payload";
+import { Payload, PayloadData } from "../payload";
 
 /**
  * OPCODE 11 HEARTBEATACK

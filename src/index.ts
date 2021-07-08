@@ -6,8 +6,9 @@ import { Console } from './console';
 import { Dispatch } from './models/payload/dispatch';
 import { Hello } from './models/payload/hello';
 import { IdentifyData, Identify } from './models/payload/identify';
-import { Payload } from './models/payload/payload';
+import { Payload } from './models/payload';
 import { ResumeData, Resume } from './models/payload/resume';
+import { Ready } from './models/payload/dispatch/ready';
 
 export class Core {
     private endpoint: URL;
@@ -78,7 +79,8 @@ export class Core {
      */
     private async onDispatch(payload: Dispatch) {
         if (payload.t == 'READY') {
-            this.session_id = payload.d.session_id;
+            const ready: Ready = payload as Ready;
+            this.session_id = ready.d.session_id;
         }
     }
 

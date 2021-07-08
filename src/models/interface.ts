@@ -1,10 +1,24 @@
+export interface Init {
+    v: number;
+    user_settings: any;
+    user: User;
+    session_id: string;
+    relationships: Array<any>;
+    private_channels: Array<string>;
+    presences: Array<string>;
+    guilds: Array<Guild>;
+    guild_join_requests: Array<string>;
+    geo_ordered_rtc_regions: Array<string>;
+    application: Application;
+}
+
 export interface Guild {
     // basic info
     name: string;
     description: string;
 
     // booleans
-    unavailable?: boolean;
+    unavailable: boolean;
     nsfw: boolean;
     lazy: boolean;
     large: boolean;
