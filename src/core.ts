@@ -2,14 +2,14 @@ import { URL } from 'url';
 import WebSocket from 'ws';
 import { Client } from "./client";
 import { Console } from "./console";
-import { Guild } from './models/events/ready';
+import { GuildCreate } from './models/events/guildCreate';
+import { Ready } from './models/events/ready';
 import { Payload } from "./models/payload";
 import { Dispatch } from "./models/payloads/dispatch";
-import { GuildCreate } from './models/payloads/dispatch/guildCreate';
-import { Ready } from "./models/payloads/dispatch/ready";
 import { Hello } from "./models/payloads/hello";
 import { Identify, IdentifyData } from "./models/payloads/identify";
 import { Resume, ResumeData } from "./models/payloads/resume";
+import { Event } from './models/payloads/dispatch';
 
 
 export class Core {
@@ -57,7 +57,7 @@ export class Core {
         const payload: Payload = JSON.parse(data.toString());
         Console.log(`RECV OPCODE ${payload.op}`);
         //Console.warn(JSON.stringify(payload));
-        if (payload.op == 0) await this.onDispatch(payload as Dispatch);
+        if (payload.op == 0) await this.onDispatch(payload as Dispatch<Event>);
         if (payload.op == 1) await this.onHeartbeat();
         if (payload.op == 10) await this.onHello(payload as Hello);
         if (payload.op == 11) this.acknowledged = true;
@@ -79,14 +79,14 @@ export class Core {
     /**
      * @function onDispatch - Invoked on receipt of OPCODE 0 DISPATCH
      */
-    private async onDispatch(payload: Dispatch) {
+    private async onDispatch(payload: Dispatch<Event>) {
         switch (payload.t) {
             case 'READY':
-                const ready: Ready = payload as Ready;
+                const ready: Dispatch<Ready> = payload as Dispatch<Ready>;
                 this.session_id = ready.d.session_id;
                 break;
             case 'GUILD_CREATE':
-                const guildCreate: GuildCreate = payload as GuildCreate;
+                const guildCreate: Dispatch<GuildCreate> = payload as Dispatch<GuildCreate>;
                 Console.highlight(`Received guild ${guildCreate.d.name}`);
             default:
                 break;

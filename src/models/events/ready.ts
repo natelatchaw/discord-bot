@@ -1,3 +1,4 @@
+import { Event } from "../payloads/dispatch";
 import { Application } from "../resources/application";
 import { Guild } from "../resources/guild";
 import { User } from "../resources/user";
@@ -6,7 +7,7 @@ import { User } from "../resources/user";
  * @interface Ready
  * <https://discord.com/developers/docs/topics/gateway#ready>
  */
-export interface Ready {
+export interface Ready extends Event {
     /**
      * @param { number } v - gateway version
      * <https://discord.com/developers/docs/topics/gateway#gateways-gateway-versions>
