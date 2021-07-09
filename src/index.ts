@@ -12,7 +12,8 @@ async function start() {
         await file.close();
     }
     catch (error: any) {
-        console.error(error);
+        if (error.code === 'EEXIST') { }
+        else throw error;
     }
     
     dotenv.config();
