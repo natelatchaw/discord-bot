@@ -1,4 +1,4 @@
-import { User, Guild, Application } from "../interface";
+import { User, Guild, Application } from "../events/ready";
 import { Payload, PayloadData } from "../payload";
 
 /**

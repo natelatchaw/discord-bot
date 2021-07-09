@@ -1,6 +1,6 @@
 import WebSocket from "ws";
 import { URL } from "url";
-import { Heartbeat } from "./models/payload/heartbeat";
+import { Heartbeat } from "./models/payloads/heartbeat";
 
 export type Resolution = (value?: any) => void;
 export type Rejection = (reason?: Error) => void;

@@ -1,5 +1,5 @@
 import { Dispatch, DispatchData } from "../dispatch";
-import { Guild, Member } from '../../interface';
+import { Guild, Member } from '../../events/ready';
 
 export class GuildCreate implements Dispatch {
     op: number = 0;

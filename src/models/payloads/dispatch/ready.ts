@@ -1,4 +1,4 @@
-import { User, Guild, Application, Init } from "../../interface";
+import { User, Guild, Application, Init } from "../../events/ready";
 import { Dispatch, DispatchData } from "../dispatch";
 
 export class Ready implements Dispatch {

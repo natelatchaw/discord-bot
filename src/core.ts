@@ -2,14 +2,14 @@ import { URL } from 'url';
 import WebSocket from 'ws';
 import { Client } from "./client";
 import { Console } from "./console";
-import { Guild } from './models/interface';
+import { Guild } from './models/events/ready';
 import { Payload } from "./models/payload";
-import { Dispatch } from "./models/payload/dispatch";
-import { GuildCreate } from './models/payload/dispatch/guildCreate';
-import { Ready } from "./models/payload/dispatch/ready";
-import { Hello } from "./models/payload/hello";
-import { Identify, IdentifyData } from "./models/payload/identify";
-import { Resume, ResumeData } from "./models/payload/resume";
+import { Dispatch } from "./models/payloads/dispatch";
+import { GuildCreate } from './models/payloads/dispatch/guildCreate';
+import { Ready } from "./models/payloads/dispatch/ready";
+import { Hello } from "./models/payloads/hello";
+import { Identify, IdentifyData } from "./models/payloads/identify";
+import { Resume, ResumeData } from "./models/payloads/resume";
 
 
 export class Core {
