@@ -1,14 +1,14 @@
-import { ActivityAssets } from "./activityAssets";
-import { ActivityEmoji } from "./activityEmoji";
-import { ActivityParty } from "./activityParty";
-import { ActivitySecrets } from "./activitySecrets";
-import { Snowflake } from "./snowflake";
-import { Timestamps } from "./timestamps";
-import { ActivityButton } from "./activityButtons";
+import { ActivityAssets } from './activityAssets';
+import { ActivityEmoji } from './activityEmoji';
+import { ActivityParty } from './activityParty';
+import { ActivitySecrets } from './activitySecrets';
+import { Snowflake } from './snowflake';
+import { Timestamps } from './timestamps';
+import { ActivityButton } from './activityButtons';
 
 /**
  * @interface Activity
- * <https://discord.com/developers/docs/topics/gateway#activity-object>
+ * @see https://discord.com/developers/docs/topics/gateway#activity-object
  */
 export interface Activity {
     /**
@@ -18,9 +18,10 @@ export interface Activity {
 
     /**
      * @param { number } type - activity type
-     * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-types>
+     * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-types
+     * @todo create ActivityType extends Number as enum
      */
-    type: number; // TODO - replace with ActivityType extends Number
+    type: number;
 
     /**
      * @param { string | undefined } url - stream url, is validated when type is 1
@@ -34,7 +35,7 @@ export interface Activity {
 
     /**
      * @param { Timestamps } timestamps - unix timestamps for start and/or end of the game
-     * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-timestamps>
+     * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-timestamps
      */
     timestamps: Timestamps;
 
@@ -55,25 +56,25 @@ export interface Activity {
 
     /**
      * @param { Emoji | undefined } emoji - the emoji used for a custom status
-     * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-emoji>
+     * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-emoji
      */
     emoji?: ActivityEmoji;
 
     /**
      * @param { Party } party - information for the current party of the player
-     * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-party>
+     * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-party
      */
     party: ActivityParty;
 
     /**
      * @param { Assets } assets - images for the presence and their hover texts
-     * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-assets>
+     * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-assets
      */
     assets: ActivityAssets;
 
     /**
      * @param { Secrets } secrets - secrets for Rich Presence joining and spectating
-     * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-secrets>
+     * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-secrets>
      */
     secrets: ActivitySecrets;
 
@@ -84,13 +85,13 @@ export interface Activity {
 
     /**
      * @param { number } flags - activity flags OR d together, describes what the payload includes
-     * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-flags>
+     * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-flags
      */
     flags: number;
 
     /**
      * @param { Array<Button> } buttons - the custom buttons shown in the Rich Presence (max 2)
-     * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-buttons>
+     * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-buttons
      */
     buttons: Array<ActivityButton>;
 }

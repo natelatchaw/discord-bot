@@ -24,7 +24,7 @@ export class File {
      * @param {PathLike} path
      */
     constructor(path: PathLike) {
-        this.path = path;
+      this.path = path;
     }
 
     /**
@@ -32,64 +32,64 @@ export class File {
      * @return {Promise<promises.FileHandle>}
      */
     public async open(flags: string = 'wx+'): Promise<promises.FileHandle> {
-        try {
-            // get a file handle for reading and appending
-            this.handleRequest = promises.open(this.path, flags);
-            return this.handleRequest;
-        }
-        catch (error: any) {
-            throw error;
-        }
+      try {
+        // get a file handle for reading and appending
+        this.handleRequest = promises.open(this.path, flags);
+        return this.handleRequest;
+      }
+      catch (error: any) {
+        throw error;
+      }
     }
 
     /**
      * @return {Promise<void>}: A promise of the task's completion
      */
     public async close(): Promise<void> {
-        try {
-            // wait for the promise to complete
-            const handle = await this.handleRequest;
-            // if the handle's value is undefined
-            if (!handle) throw new Error('File handle is invalid.');
-            // close the file
-            return handle.close();
-        }
-        catch (error: any) {
-            // rethrow error
-            throw error;
-        }
+      try {
+        // wait for the promise to complete
+        const handle = await this.handleRequest;
+        // if the handle's value is undefined
+        if (!handle) throw new Error('File handle is invalid.');
+        // close the file
+        return handle.close();
+      }
+      catch (error: any) {
+        // rethrow error
+        throw error;
+      }
     }
 
     /**
      * @return {Promise<void>}: A promise of the task's completion
      */
     public async delete(): Promise<void> {
-        try {
-            // wait for the promise to complete
-            const handle = await this.handleRequest;
-            // if the handle's value is undefined
-            if (!handle) throw new Error('File handle is invalid.');
-            // convert fs.unlink as callback-based function to promise-based function
-            const unlink: ((path: PathLike) => Promise<void>) = promisify(fs.unlink);
-            return unlink(this.path);
-        }
-        catch (error: any) {
-            // rethrow error
-            throw error;
-        }
+      try {
+        // wait for the promise to complete
+        const handle = await this.handleRequest;
+        // if the handle's value is undefined
+        if (!handle) throw new Error('File handle is invalid.');
+        // convert fs.unlink as callback-based function to promise-based function
+        const unlink: ((path: PathLike) => Promise<void>) = promisify(fs.unlink);
+        return unlink(this.path);
+      }
+      catch (error: any) {
+        // rethrow error
+        throw error;
+      }
     }
 
     /**
      * @param { string } data
      */
     public async write(data: string) {
-        // create buffer from stringified data
-        const buffer: Buffer = Buffer.from(data);
-        // open the file
-        const handle: promises.FileHandle = await this.open('w+');
-        // write the buffer to file
-        await handle.write(buffer, 0, buffer.length, 0);
-        // close file when done
-        await handle.close();
+      // create buffer from stringified data
+      const buffer: Buffer = Buffer.from(data);
+      // open the file
+      const handle: promises.FileHandle = await this.open('w+');
+      // write the buffer to file
+      await handle.write(buffer, 0, buffer.length, 0);
+      // close file when done
+      await handle.close();
     }
 }

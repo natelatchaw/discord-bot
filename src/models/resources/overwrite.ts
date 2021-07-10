@@ -1,8 +1,8 @@
-import { Snowflake } from "./snowflake";
+import { Snowflake } from './snowflake';
 
 /**
  * @interface Overwrite
- * <https://discord.com/developers/docs/resources/channel#overwrite-object>
+ * @see https://discord.com/developers/docs/resources/channel#overwrite-object
  */
 export interface Overwrite {
     /**

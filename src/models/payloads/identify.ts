@@ -1,4 +1,4 @@
-import { Payload, PayloadData } from "../payload";
+import { Payload, PayloadData } from '../payload';
 
 /**
  * OPCODE 2 IDENTIFY
@@ -9,11 +9,17 @@ import { Payload, PayloadData } from "../payload";
 export class Identify implements Payload {
     public op: number = 2;
     public d: IdentifyData;
-    public s?: number = undefined;
-    public t?: string = undefined;
+    public s?: number;
+    public t?: string;
 
+    /**
+     * @constructor
+     * @param { Identify } data
+     */
     public constructor(data: IdentifyData) {
-        this.d = data;
+      this.d = data;
+      this.s = undefined;
+      this.t = undefined;
     }
 }
 
@@ -24,21 +30,28 @@ export class Identify implements Payload {
  * @property { number } intents
  * @property { object } properties
  */
- export class IdentifyData implements PayloadData {
+export class IdentifyData implements PayloadData {
     public token: string;
     public intents: number;
     public properties: object;
     public compress: boolean;
 
+    /**
+     * @constructor
+     * @param { string } token
+     * @param { number } intents
+     * @param { object } properties
+     * @param { boolean } compress
+     */
     public constructor(
-        token: string, 
-        intents: number, 
+        token: string,
+        intents: number,
         properties: object,
         compress: boolean = false,
     ) {
-        this.token = token;
-        this.intents = intents;
-        this.properties = properties;
-        this.compress = compress;
+      this.token = token;
+      this.intents = intents;
+      this.properties = properties;
+      this.compress = compress;
     }
 }

@@ -1,17 +1,17 @@
-import { Channel } from "./channel";
-import { Emoji } from "./emoji";
-import { Feature } from "./feature";
-import { Member } from "./member";
-import { Role } from "./role";
-import { Snowflake } from "./snowflake";
-import { VoiceState } from "./voiceState";
-import { Prescence } from "./presence";
-import { Stage } from "./stage";
-import { WelcomeScreen } from "./welcomeScreen";
+import { Channel } from './channel';
+import { Emoji } from './emoji';
+import { Feature } from './feature';
+import { Member } from './member';
+import { Role } from './role';
+import { Snowflake } from './snowflake';
+import { VoiceState } from './voiceState';
+import { Prescence } from './presence';
+import { Stage } from './stage';
+import { WelcomeScreen } from './welcomeScreen';
 
 /**
  * @interface Guild
- * <https://discord.com/developers/docs/resources/guild#guild-object>
+ * @see https://discord.com/developers/docs/resources/guild#guild-object
  */
 export interface Guild {
     /**
@@ -20,38 +20,38 @@ export interface Guild {
     id: Snowflake;
 
     /**
-     * @param { string } name - guild name 
+     * @param { string } name - guild name
      * (2-100 characters, excluding trailing and leading whitespace)
      */
     name: string;
 
     /**
      * @param { string | undefined } icon - icon hash
-     * <https://discord.com/developers/docs/reference#image-formatting>
+     * @see https://discord.com/developers/docs/reference#image-formatting
      */
     icon?: string;
 
     /**
      * @param { string | undefined } icon_hash - icon hash, returned when in the template object
-     * <https://discord.com/developers/docs/reference#image-formatting>
+     * @see https://discord.com/developers/docs/reference#image-formatting
      */
     icon_hash?: string;
 
     /**
      * @param { string | undefined } splash - splash hash
-     * <https://discord.com/developers/docs/reference#image-formatting>
+     * @see https://discord.com/developers/docs/reference#image-formatting
      */
     splash?: string;
 
     /**
      * @param { string | undefined } discovery_splash - discovery splash hash; only present for guilds with the "DISCOVERABLE" feature
-     * <https://discord.com/developers/docs/reference#image-formatting>
+     * @see https://discord.com/developers/docs/reference#image-formatting
      */
     discovery_splash?: string;
 
     /**
      * @param { boolean } owner - true if the user is the owner of the guild
-     * <https://discord.com/developers/docs/resources/user#get-current-user-guilds>
+     * @see https://discord.com/developers/docs/resources/user#get-current-user-guilds
      */
     owner: boolean;
 
@@ -62,13 +62,13 @@ export interface Guild {
 
     /**
      * @param { string } permissions - total permissions for the user in the guild (excludes overwrites)
-     * <https://discord.com/developers/docs/resources/user#get-current-user-guilds>
+     * @see https://discord.com/developers/docs/resources/user#get-current-user-guilds
      */
     permissions: string;
 
     /**
      * @param { string | undefined } region - voice region id for the guild (deprecated)
-     * <https://discord.com/developers/docs/resources/voice#voice-region-object>
+     * @see https://discord.com/developers/docs/resources/voice#voice-region-object
      */
     region?: string;
 
@@ -94,43 +94,43 @@ export interface Guild {
 
     /**
      * @param { number } verification_level - verification level required for the guild
-     * <https://discord.com/developers/docs/resources/guild#guild-object-verification-level>
+     * @see https://discord.com/developers/docs/resources/guild#guild-object-verification-level
      */
     verification_level: number;
 
     /**
      * @param { number } default_message_notifications - default message notifications level
-     * <https://discord.com/developers/docs/resources/guild#guild-object-default-message-notification-level>
+     * @see https://discord.com/developers/docs/resources/guild#guild-object-default-message-notification-level
      */
     default_message_notifications: number;
 
     /**
      * @param { number } explicit_content_filter - explicit content filter level
-     * <https://discord.com/developers/docs/resources/guild#guild-object-explicit-content-filter-level>
+     * @see https://discord.com/developers/docs/resources/guild#guild-object-explicit-content-filter-level
      */
     explicit_content_filter: number;
 
     /**
      * @param { Array<Role> } roles - roles in the guild
-     * <https://discord.com/developers/docs/topics/permissions#role-object>
+     * @see https://discord.com/developers/docs/topics/permissions#role-object
      */
     roles: Array<Role>;
 
     /**
      * @param { Array<Emoji> } emojis - custom guild emojis
-     * <https://discord.com/developers/docs/resources/emoji#emoji-object>
+     * @see https://discord.com/developers/docs/resources/emoji#emoji-object
      */
     emojis: Array<Emoji>;
 
     /**
      * @param { Array<Feature> } features - enabled guild features
-     * <https://discord.com/developers/docs/resources/guild#guild-object-guild-features>
+     * @see https://discord.com/developers/docs/resources/guild#guild-object-guild-features
      */
     features: Array<Feature>;
 
     /**
      * @param { number } mfa_level - required MFA level for the guild
-     * <https://discord.com/developers/docs/resources/guild#guild-object-mfa-level>
+     * @see https://discord.com/developers/docs/resources/guild#guild-object-mfa-level
      */
     mfa_level: number;
 
@@ -146,7 +146,7 @@ export interface Guild {
 
     /**
      * @param { number } system_channel_flags - system channel flags
-     * <https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags>
+     * @see https://discord.com/developers/docs/resources/guild#guild-object-system-channel-flags
      */
     system_channel_flags: number;
 
@@ -178,31 +178,31 @@ export interface Guild {
 
     /**
      * @param { Array<VoiceState> } voice_states - states of members currently in voice channels; lacks the guild_id key
-     * <https://discord.com/developers/docs/resources/voice#voice-state-object>
+     * @see https://discord.com/developers/docs/resources/voice#voice-state-object
      */
     voice_states: Array<VoiceState>;
 
     /**
      * @param { Array<Member> } members - users in the guild
-     * <https://discord.com/developers/docs/resources/guild#guild-member-object>
+     * @see https://discord.com/developers/docs/resources/guild#guild-member-object
      */
     members: Array<Member>;
 
     /**
      * @param { Array<Channel> } channels - channels in the guild
-     * <https://discord.com/developers/docs/resources/channel#channel-object>
+     * @see https://discord.com/developers/docs/resources/channel#channel-object
      */
     channels: Array<Channel>;
 
     /**
      * @param { Array<Channel> } threads - all active threads in the guild that current user has permission to view
-     * <https://discord.com/developers/docs/resources/channel#channel-object>
+     * @see https://discord.com/developers/docs/resources/channel#channel-object
      */
     threads: Array<Channel>;
 
     /**
      * @param { Array<Presence> } presences - presences of the members in the guild, will only include non-offline members if the size is greater than large threshold
-     * <https://discord.com/developers/docs/topics/gateway#presence-update>
+     * @see https://discord.com/developers/docs/topics/gateway#presence-update
      */
     presences: Array<Prescence>
 
@@ -228,13 +228,13 @@ export interface Guild {
 
     /**
      * @param { string | undefined } banner - banner hash
-     * <https://discord.com/developers/docs/reference#image-formatting>
+     * @see https://discord.com/developers/docs/reference#image-formatting
      */
     banner?: string;
 
     /**
      * @param { number } premium_tier - premium tier (Server Boost level)
-     * <https://discord.com/developers/docs/resources/guild#guild-object-premium-tier>
+     * @see https://discord.com/developers/docs/resources/guild#guild-object-premium-tier
      */
     premium_tier: number;
 
@@ -270,19 +270,19 @@ export interface Guild {
 
     /**
      * @param { WelcomeScreen } welcome_screen - the welcome screen of a Community guild, shown to new members, returned in an Invite's guild object
-     * <https://discord.com/developers/docs/resources/guild#welcome-screen-object>
+     * @see https://discord.com/developers/docs/resources/guild#welcome-screen-object
      */
     welcome_screen: WelcomeScreen;
 
     /**
      * @param { number } nsfw_level - guild NSFW level
-     * <https://discord.com/developers/docs/resources/guild#guild-object-guild-nsfw-level>
+     * @see https://discord.com/developers/docs/resources/guild#guild-object-guild-nsfw-level
      */
     nsfw_level: number;
 
     /**
      * @param { Array<Stage> } stage_instances - Stage instances in the guild
-     * <https://discord.com/developers/docs/resources/stage-instance#stage-instance-object>
+     * @see https://discord.com/developers/docs/resources/stage-instance#stage-instance-object
      */
     stage_instances: Array<Stage>;
 }

@@ -1,6 +1,6 @@
 /**
  * @interface Timestamps
- * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-timestamps>
+ * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-timestamps>
  */
 export interface Timestamps {
     /**

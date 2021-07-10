@@ -1,8 +1,8 @@
-import { WelcomeScreenChannel } from "./welcomeScreenChannel";
+import { WelcomeScreenChannel } from './welcomeScreenChannel';
 
 /**
  * @interface WelcomeScreen
- * <https://discord.com/developers/docs/resources/guild#welcome-screen-object>
+ * @see https://discord.com/developers/docs/resources/guild#welcome-screen-object
  */
 export interface WelcomeScreen {
     /**
@@ -12,7 +12,7 @@ export interface WelcomeScreen {
 
     /**
      * @param { Array<WelcomeScreenChannel> } welcome_channels - the channels shown in the welcome screen, up to 5
-     * <https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-channel-structure>
+     * @see https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-channel-structure
      */
     welcome_channels: Array<WelcomeScreenChannel>;
 }

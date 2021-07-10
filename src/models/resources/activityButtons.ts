@@ -1,6 +1,6 @@
 /**
  * @interface ActivityButton
- * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-buttons>
+ * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-buttons
  */
 export interface ActivityButton {
     /**

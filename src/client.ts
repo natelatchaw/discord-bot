@@ -1,10 +1,13 @@
-import WebSocket from "ws";
-import { URL } from "url";
-import { Heartbeat } from "./models/payloads/heartbeat";
+import WebSocket from 'ws';
+import { URL } from 'url';
+import { Heartbeat } from './models/payloads/heartbeat';
 
 export type Resolution = (value?: any) => void;
 export type Rejection = (reason?: Error) => void;
 
+/**
+ * @class Client
+ */
 export class Client {
     private webSocket: WebSocket;
     public sequence: number;
@@ -14,40 +17,60 @@ export class Client {
      * @param { URL } endpoint
      */
     public constructor(endpoint: URL) {
-        this.webSocket = new WebSocket(endpoint);
-        this.sequence = 0;
+      this.webSocket = new WebSocket(endpoint);
+      this.sequence = 0;
     }
 
     /**
-     * @event
-     * @param { () => void } listener
+     * @callback onCloseCallback
+     * @param { void }
+     * @return { void }
      */
-    public onOpen = (listener: () => void) => this.webSocket.on('open', listener);
+    /**
+     * @event onOpen
+     * @param { onCloseCallback } listener
+     * @return { WebSocket }
+     */
+    public onOpen = (listener: () => void): WebSocket => this.webSocket.on('open', listener);
 
     /**
-     * @event
-     * @param { (number, string) => void } listener
+     * @callback onCloseCallback
+     * @param { number } code
+     * @param { string } reason
+     * @return { void }
      */
-    public onClose = (listener: (code: number, reason: string) => void) => this.webSocket.on('close', listener);
+    /**
+     * @event onClose - Event invoked on receipt of websocket close
+     * @param { onCloseCallback } listener
+     * @return { WebSocket }
+     */
+    public onClose = (listener: (code: number, reason: string) => void): WebSocket => this.webSocket.on('close', listener);
 
     /**
-     * @event
-     * @param { (WebSocket.Data) => void } listener
+     * @callback onMessageCallback
+     * @param { WebSocket.Data } data
+     * @return { void }
      */
-    public onMessage = (listener: (data: WebSocket.Data) => void) => this.webSocket.on('message', listener);
+    /**
+     * @event onMessage
+     * @param { onMessageCallback } listener
+     * @return { WebSocket }
+     */
+    public onMessage = (listener: (data: WebSocket.Data) => void): WebSocket => this.webSocket.on('message', listener);
 
     /**
      * @function send
      * @param { string } data
+     * @param { number } timeout
      * @return { Promise<void> }
      */
     public async send(data: string, timeout: number = 0): Promise<void> {
-        return new Promise((resolve: Resolution, reject: Rejection) => {
-            this.webSocket.send(data, (error?: Error) => {
-                if (error) reject(error);
-                else setTimeout(resolve, timeout);
-            });
+      return new Promise((resolve: Resolution, reject: Rejection) => {
+        this.webSocket.send(data, (error?: Error) => {
+          if (error) reject(error);
+          else setTimeout(resolve, timeout);
         });
+      });
     }
 
     /**
@@ -56,9 +79,9 @@ export class Client {
      * @return { Promise<void> }
      */
     public async beat(interval: number): Promise<void> {
-        const payload: Heartbeat = new Heartbeat(++this.sequence);
-        const data: string = JSON.stringify(payload);
-        return this.send(data, interval);
+      const payload: Heartbeat = new Heartbeat(++this.sequence);
+      const data: string = JSON.stringify(payload);
+      return this.send(data, interval);
     }
 
     /**
@@ -67,6 +90,6 @@ export class Client {
      * @param { string | undefined } data
      */
     public close(code?: number, data?: string): void {
-        this.webSocket.close(code, data);
+      this.webSocket.close(code, data);
     }
 }

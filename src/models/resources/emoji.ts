@@ -1,15 +1,15 @@
-import { Role } from "./role";
-import { Snowflake } from "./snowflake";
-import { User } from "./user";
+import { Role } from './role';
+import { Snowflake } from './snowflake';
+import { User } from './user';
 
 /**
  * @interface Emoji
- * <https://discord.com/developers/docs/resources/emoji#emoji-object>
+ * @see https://discord.com/developers/docs/resources/emoji#emoji-object
  */
 export interface Emoji {
     /**
      * @param { Snowflake | undefined } id - emoji id
-     * <https://discord.com/developers/docs/reference#image-formatting>
+     * @see https://discord.com/developers/docs/reference#image-formatting
      */
     id?: Snowflake;
 
@@ -20,13 +20,13 @@ export interface Emoji {
 
     /**
      * @param { Array<Role> } roles - roles allowed to use this emoji
-     * <https://discord.com/developers/docs/topics/permissions#role-object>
+     * @see https://discord.com/developers/docs/topics/permissions#role-object
      */
     roles: Array<Role>;
 
     /**
      * @param { User } user - user that created this emoji
-     * <https://discord.com/developers/docs/resources/user#user-object>
+     * @see https://discord.com/developers/docs/resources/user#user-object
      */
     user: User;
 

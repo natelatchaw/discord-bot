@@ -1,8 +1,8 @@
-import { Snowflake } from "./snowflake";
+import { Snowflake } from './snowflake';
 
 /**
  * @interface Role
- * <https://discord.com/developers/docs/topics/permissions#role-object>
+ * @see https://discord.com/developers/docs/topics/permissions#role-object
  */
 export interface Role {
     /**

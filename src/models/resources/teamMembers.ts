@@ -1,16 +1,17 @@
-import { Snowflake } from "./snowflake";
-import { User } from "./user";
+import { Snowflake } from './snowflake';
+import { User } from './user';
 
 /**
  * @interface TeamMembers
- * <https://discord.com/developers/docs/topics/teams#data-models-team-members-object>
+ * @see https://discord.com/developers/docs/topics/teams#data-models-team-members-object
  */
 export interface TeamMembers {
     /**
      * @param { number } membership_state - the user's membership state on the team
-     * <https://discord.com/developers/docs/topics/teams#data-models-membership-state-enum>
+     * @see https://discord.com/developers/docs/topics/teams#data-models-membership-state-enum
+     * @todo create MembershipState extends Number as enum
      */
-    membership_state: number; // TODO - create MembershipState extends Number
+    membership_state: number;
 
     /**
      * @param { Array<string> } permissions - will always be ["*"]

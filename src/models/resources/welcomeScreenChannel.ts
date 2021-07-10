@@ -1,8 +1,8 @@
-import { Snowflake } from "./snowflake";
+import { Snowflake } from './snowflake';
 
 /**
  * @interface WelcomeScreenChannel
- * <https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-channel-structure>
+ * @see https://discord.com/developers/docs/resources/guild#welcome-screen-object-welcome-screen-channel-structure
  */
 export interface WelcomeScreenChannel {
     /**
@@ -17,7 +17,7 @@ export interface WelcomeScreenChannel {
 
     /**
      * @param { Snowflake | undefined } emoji_id - the emoji id, if the emoji is custom
-     * <https://discord.com/developers/docs/reference#image-formatting>
+     * @see https://discord.com/developers/docs/reference#image-formatting
      */
     emoji_id?: Snowflake;
 

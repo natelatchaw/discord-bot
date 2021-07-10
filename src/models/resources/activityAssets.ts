@@ -1,6 +1,6 @@
 /**
  * @interface ActivityAssets
- * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-assets>
+ * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-assets
  */
 export interface ActivityAssets {
     /**

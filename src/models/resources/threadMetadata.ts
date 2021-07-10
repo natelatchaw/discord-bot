@@ -1,6 +1,6 @@
 /**
  * @interface ThreadMetadata
- * <https://discord.com/developers/docs/resources/channel#thread-metadata-object>
+ * @see https://discord.com/developers/docs/resources/channel#thread-metadata-object
  */
 export interface ThreadMetadata {
     /**

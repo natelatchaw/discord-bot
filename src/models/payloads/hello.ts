@@ -1,4 +1,4 @@
-import { Payload, PayloadData } from "../payload";
+import { Payload, PayloadData } from '../payload';
 
 /**
  * OPCODE 10 HELLO
@@ -9,11 +9,19 @@ import { Payload, PayloadData } from "../payload";
 export class Hello implements Payload {
     public op: number = 10;
     public d: HelloData;
-    public s?: number = undefined;
-    public t?: string = undefined;
+    public s?: number;
+    public t?: string;
 
-    public constructor(data: HelloData) {
-        this.d = data;
+    /**
+     * @constructor
+     * @param { HelloData } data
+     */
+    public constructor(
+        data: HelloData,
+    ) {
+      this.d = data;
+      this.s = undefined;
+      this.t = undefined;
     }
 }
 
@@ -22,10 +30,14 @@ export class Hello implements Payload {
  * @class HelloData
  * @property { number } heartbeat_interval
  */
- export class HelloData implements PayloadData {
+export class HelloData implements PayloadData {
     public heartbeat_interval: number;
 
+    /**
+     * @constructor
+     * @param { number } interval
+     */
     public constructor(interval: number) {
-        this.heartbeat_interval = interval;
+      this.heartbeat_interval = interval;
     }
 }

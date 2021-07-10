@@ -1,8 +1,8 @@
-import { Snowflake } from "./snowflake";
+import { Snowflake } from './snowflake';
 
 /**
  * @interface Stage
- * <https://discord.com/developers/docs/resources/stage-instance#stage-instance-object>
+ * @see https://discord.com/developers/docs/resources/stage-instance#stage-instance-object
  */
 export interface Stage {
     /**
@@ -27,7 +27,7 @@ export interface Stage {
 
     /**
      * @param { number } privacy_level - The privacy level of the Stage instance
-     * <https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-privacy-level>
+     * @see https://discord.com/developers/docs/resources/stage-instance#stage-instance-object-privacy-level
      */
     privacy_level: number;
 

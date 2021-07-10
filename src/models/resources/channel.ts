@@ -1,12 +1,12 @@
-import { Overwrite } from "./overwrite";
-import { Snowflake } from "./snowflake";
-import { ThreadMember } from "./threadMember";
-import { ThreadMetadata } from "./threadMetadata";
-import { User } from "./user";
+import { Overwrite } from './overwrite';
+import { Snowflake } from './snowflake';
+import { ThreadMember } from './threadMember';
+import { ThreadMetadata } from './threadMetadata';
+import { User } from './user';
 
 /**
  * @interface Channel
- * <https://discord.com/developers/docs/resources/channel#channel-object>
+ * @see https://discord.com/developers/docs/resources/channel#channel-object
  */
 export interface Channel {
     /**
@@ -16,7 +16,7 @@ export interface Channel {
 
     /**
      * @param { number } type - the type of channel
-     * <https://discord.com/developers/docs/resources/channel#channel-object-channel-types>
+     * @see https://discord.com/developers/docs/resources/channel#channel-object-channel-types
      */
     type: number;
 
@@ -32,7 +32,7 @@ export interface Channel {
 
     /**
      * @param { Array<Overwrite> } permission_overwrites - explicit permission overwrites for members and roles
-     * <https://discord.com/developers/docs/resources/channel#overwrite-object>
+     * @see https://discord.com/developers/docs/resources/channel#overwrite-object
      */
     permission_overwrites: Array<Overwrite>
 
@@ -73,7 +73,7 @@ export interface Channel {
 
     /**
      * @param { Array<User> } recipients - the recipients of the DM
-     * <https://discord.com/developers/docs/resources/user#user-object>
+     * @see https://discord.com/developers/docs/resources/user#user-object
      */
     recipients: Array<User>;
 
@@ -105,13 +105,13 @@ export interface Channel {
 
     /**
      * @param { string | undefined } rtc_region - voice region id for the voice channel, automatic when set to null
-     * <https://discord.com/developers/docs/resources/voice#voice-region-object>
+     * @see https://discord.com/developers/docs/resources/voice#voice-region-object
      */
     rtc_region?: string;
 
     /**
      * @param { number } video_quality_mode - the camera video quality mode of the voice channel, 1 when not present
-     * <https://discord.com/developers/docs/resources/channel#channel-object-video-quality-modes>
+     * @see https://discord.com/developers/docs/resources/channel#channel-object-video-quality-modes>
      */
     video_quality_mode: number;
 
@@ -127,13 +127,13 @@ export interface Channel {
 
     /**
      * @param { ThreadMetadata } thread_metadata - thread-specific fields not needed by other channels
-     * <https://discord.com/developers/docs/resources/channel#thread-metadata-object>
+     * @see https://discord.com/developers/docs/resources/channel#thread-metadata-object
      */
     thread_metadata: ThreadMetadata;
 
     /**
      * @param { ThreadMember } member - thread member object for the current user, if they have joined the thread, only included on certain API endpoints
-     * <https://discord.com/developers/docs/resources/channel#thread-member-object>
+     * @see https://discord.com/developers/docs/resources/channel#thread-member-object
      */
     member: ThreadMember;
 

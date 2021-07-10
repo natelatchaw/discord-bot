@@ -1,4 +1,4 @@
-import { Payload, PayloadData } from "../payload";
+import { Payload, PayloadData } from '../payload';
 
 /**
  * OPCODE 0 DISPATCH
@@ -9,13 +9,13 @@ import { Payload, PayloadData } from "../payload";
 export class Dispatch<T extends Event> implements Payload {
     /**
      * @param { number } op - opcode for the payload
-     * <https://discord.com/developers/docs/topics/opcodes-and-status-codes#gateway-opcodes>
+     * @see https://discord.com/developers/docs/topics/opcodes-and-status-codes#gateway-opcodes
      */
     op: number = 0;
 
     /**
      * @param { Event } d - event data
-     * <https://discord.com/developers/docs/topics/gateway#commands-and-events-gateway-events>
+     * @see https://discord.com/developers/docs/topics/gateway#commands-and-events-gateway-events
      */
     d: T;
 
@@ -26,24 +26,24 @@ export class Dispatch<T extends Event> implements Payload {
 
     /**
      * @param { string | undefined } t - the event name for this payload
-     * <https://discord.com/developers/docs/topics/gateway#event-names>
+     * @see https://discord.com/developers/docs/topics/gateway#event-names
      */
     t?: string;
 
     /**
      * @constructor
      * @param { T } event
-     * @param { number | undefined } sequence 
-     * @param { string | undefined } name 
+     * @param { number | undefined } sequence
+     * @param { string | undefined } name
      */
     public constructor(
         event: T,
         sequence?: number,
         name?: string,
     ) {
-        this.d = event;
-        this.s = sequence;
-        this.t = name;
+      this.d = event;
+      this.s = sequence;
+      this.t = name;
     }
 }
 
@@ -52,4 +52,3 @@ export class Dispatch<T extends Event> implements Payload {
  * @class DispatchData
  */
 export interface Event extends PayloadData { }
-

@@ -1,9 +1,9 @@
-import { Member } from "./member";
-import { Snowflake } from "./snowflake";
+import { Member } from './member';
+import { Snowflake } from './snowflake';
 
 /**
  * @interface VoiceState
- * <https://discord.com/developers/docs/resources/voice#voice-state-object>
+ * @see https://discord.com/developers/docs/resources/voice#voice-state-object
  */
 export interface VoiceState {
     /**
@@ -23,7 +23,7 @@ export interface VoiceState {
 
     /**
      * @param { Member } member - the guild member this voice state is for
-     * <https://discord.com/developers/docs/resources/guild#guild-member-object>
+     * @see https://discord.com/developers/docs/resources/guild#guild-member-object
      */
     member: Member;
 

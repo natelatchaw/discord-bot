@@ -1,6 +1,6 @@
 /**
  * @interface ClientStatus
- * <https://discord.com/developers/docs/topics/gateway#client-status-object>
+ * @see https://discord.com/developers/docs/topics/gateway#client-status-object
  */
 export interface ClientStatus {
     /**

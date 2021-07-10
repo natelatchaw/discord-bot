@@ -1,6 +1,6 @@
 /**
  * @interface ActivityParty
- * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-party>
+ * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-party
  */
 export interface ActivityParty {
     /**

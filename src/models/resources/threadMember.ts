@@ -1,8 +1,8 @@
-import { Snowflake } from "./snowflake";
+import { Snowflake } from './snowflake';
 
 /**
  * @interface ThreadMember
- * <https://discord.com/developers/docs/resources/channel#thread-member-object>
+ * @see https://discord.com/developers/docs/resources/channel#thread-member-object
  */
 export interface ThreadMember {
     /**

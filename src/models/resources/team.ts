@@ -1,9 +1,9 @@
-import { Snowflake } from "./snowflake";
-import { TeamMembers } from "./teamMembers";
+import { Snowflake } from './snowflake';
+import { TeamMembers } from './teamMembers';
 
 /**
  * @interface Team
- * <https://discord.com/developers/docs/topics/teams#data-models-team-object>
+ * @see https://discord.com/developers/docs/topics/teams#data-models-team-object
  */
 export interface Team {
     /**
@@ -18,7 +18,7 @@ export interface Team {
 
     /**
      * @param { Array<TeamMembers> } members - the members of the team
-     * <https://discord.com/developers/docs/topics/teams#data-models-team-member-object>
+     * @see https://discord.com/developers/docs/topics/teams#data-models-team-member-object
      */
     members: Array<TeamMembers>;
 

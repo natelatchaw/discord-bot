@@ -1,6 +1,6 @@
 /**
  * @interface ActivitySecrets
- * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-secrets>
+ * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-secrets
  */
 export interface ActivitySecrets {
     /**

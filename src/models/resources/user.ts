@@ -1,8 +1,8 @@
-import { Snowflake } from "./snowflake";
+import { Snowflake } from './snowflake';
 
 /**
  * @interface User
- * <https://discord.com/developers/docs/resources/user#user-object>
+ * @see https://discord.com/developers/docs/resources/user#user-object
  */
 export interface User {
     /**
@@ -22,7 +22,7 @@ export interface User {
 
     /**
      * @param { string | undefined } avatar - the user's avatar hash
-     * <https://discord.com/developers/docs/reference#image-formatting>
+     * @see https://discord.com/developers/docs/reference#image-formatting
      */
     avatar?: string;
 
@@ -58,19 +58,19 @@ export interface User {
 
     /**
      * @param { number } flags - the flags on a user's account
-     * <https://discord.com/developers/docs/resources/user#user-object-user-flags>
+     * @see https://discord.com/developers/docs/resources/user#user-object-user-flags
      */
     flags: number;
 
     /**
      * @param { number } premium_type - the type of Nitro subscription on a user's account
-     * <https://discord.com/developers/docs/resources/user#user-object-premium-types>
+     * @see https://discord.com/developers/docs/resources/user#user-object-premium-types
      */
     premium_type: number;
 
     /**
      * @param { number } public_flags - the public flags on a user's account
-     * <https://discord.com/developers/docs/resources/user#user-object-user-flags>
+     * @see https://discord.com/developers/docs/resources/user#user-object-user-flags
      */
     public_flags: number;
 }

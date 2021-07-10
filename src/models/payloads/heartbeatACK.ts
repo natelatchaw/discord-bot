@@ -1,4 +1,4 @@
-import { Payload, PayloadData } from "../payload";
+import { Payload, PayloadData } from '../payload';
 
 /**
  * OPCODE 11 HEARTBEATACK
@@ -12,8 +12,12 @@ export class HeartbeatACK implements Payload {
     public s?: number = undefined;
     public t?: string = undefined;
 
+    /**
+     * @constructor
+     * @param {HeartbeatACKData } data
+     */
     public constructor(data: HeartbeatACKData = new HeartbeatACKData()) {
-        this.d = data;
+      this.d = data;
     }
 }
 
@@ -21,4 +25,4 @@ export class HeartbeatACK implements Payload {
  * OPCODE 11 HEARTBEAT ACK
  * @class HeartbeatACKData
  */
- export class HeartbeatACKData implements PayloadData { }
+export class HeartbeatACKData implements PayloadData { }

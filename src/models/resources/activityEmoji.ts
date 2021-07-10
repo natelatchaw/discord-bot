@@ -1,8 +1,8 @@
-import { Snowflake } from "./snowflake";
+import { Snowflake } from './snowflake';
 
 /**
  * @interface ActivityEmoji
- * <https://discord.com/developers/docs/topics/gateway#activity-object-activity-emoji>
+ * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-emoji>
  */
 export interface ActivityEmoji {
     /**

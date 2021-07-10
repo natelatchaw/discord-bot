@@ -1,14 +1,14 @@
-import { Snowflake } from "./snowflake";
-import { User } from "./user";
+import { Snowflake } from './snowflake';
+import { User } from './user';
 
 /**
  * @interface Member
- * <https://discord.com/developers/docs/resources/guild#guild-member-object>
+ * @see https://discord.com/developers/docs/resources/guild#guild-member-object
  */
 export interface Member {
     /**
      * @param { User } user - the user this guild member represents
-     * <https://discord.com/developers/docs/resources/user#user-object>
+     * @see https://discord.com/developers/docs/resources/user#user-object
      */
     user: User;
 
@@ -19,7 +19,7 @@ export interface Member {
 
     /**
      * @param { Array<Snowflake> } roles - array of role object ids
-     * <https://discord.com/developers/docs/topics/permissions#role-object>
+     * @see https://discord.com/developers/docs/topics/permissions#role-object
      */
     roles: Array<Snowflake>;
 
@@ -31,7 +31,7 @@ export interface Member {
 
     /**
      * @param { string | undefined } premium_since - when the user started boosting the guild
-     * <https://support.discord.com/hc/en-us/articles/360028038352-Server-Boosting->
+     * @see https://support.discord.com/hc/en-us/articles/360028038352-Server-Boosting
      * ISO8601 formatted timestamp
      */
     premium_since?: string;
@@ -48,7 +48,7 @@ export interface Member {
 
     /**
      * @param { boolean } pending - whether the user has not yet passed the guild's Membership Screening requirements
-     * <https://discord.com/developers/docs/resources/guild#membership-screening-object>
+     * @see https://discord.com/developers/docs/resources/guild#membership-screening-object
      */
     pending: boolean;
 
