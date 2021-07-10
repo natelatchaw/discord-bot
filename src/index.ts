@@ -4,14 +4,6 @@ import { Console } from './console';
 import { Core } from './core';
 import { File } from './models/file';
 
-export {
-  Core,
-  File,
-  URL,
-  Console,
-};
-
-
 /**
  * Open the connection to Discord
  */
