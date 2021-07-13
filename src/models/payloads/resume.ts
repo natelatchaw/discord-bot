@@ -2,7 +2,7 @@ import { Payload, PayloadData } from '../payload';
 
 /**
  * OPCODE 6 RESUME
- * @class Resume
+ * @see https://discord.com/developers/docs/topics/gateway#resume
  * @property { number } op - The OPCode identifying the payload
  * @property { ResumeData } d - the payload's encapsulated data
  */
@@ -25,7 +25,7 @@ export class Resume implements Payload {
 
 /**
  * OPCODE 6 RESUME
- * @class ResumeData
+ * @see https://discord.com/developers/docs/topics/gateway#resume-resume-structure
  * @property { string } token
  * @property { string } session_id
  * @property { number } seq

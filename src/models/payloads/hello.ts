@@ -2,7 +2,7 @@ import { Payload, PayloadData } from '../payload';
 
 /**
  * OPCODE 10 HELLO
- * @class Hello
+ * @see https://discord.com/developers/docs/topics/gateway#hello
  * @property { number } op - The OPCode identifying the payload
  * @property { HeartbeatData } d - the payload's encapsulated data
  */
@@ -27,7 +27,7 @@ export class Hello implements Payload {
 
 /**
  * OPCODE 10 HELLO
- * @class HelloData
+ * @see https://discord.com/developers/docs/topics/gateway#hello-hello-structure
  * @property { number } heartbeat_interval
  */
 export class HelloData implements PayloadData {

@@ -2,7 +2,7 @@ import { Payload, PayloadData } from '../payload';
 
 /**
  * OPCODE 11 HEARTBEATACK
- * @class HeartbeatACK
+ * @see https://discord.com/developers/docs/topics/gateway#heartbeating
  * @property { number } op - The OPCode identifying the payload
  * @property { HeartbeatData } d - the payload's encapsulated data
  */
@@ -16,13 +16,13 @@ export class HeartbeatACK implements Payload {
      * @constructor
      * @param {HeartbeatACKData } data
      */
-    public constructor(data: HeartbeatACKData = new HeartbeatACKData()) {
-      this.d = data;
+    public constructor() {
+      this.d = new HeartbeatACKData();
     }
 }
 
 /**
  * OPCODE 11 HEARTBEAT ACK
- * @class HeartbeatACKData
+ * @see https://discord.com/developers/docs/topics/gateway#heartbeating-example-gateway-heartbeat-ack
  */
-export class HeartbeatACKData implements PayloadData { }
+export class HeartbeatACKData implements PayloadData { this = undefined; }

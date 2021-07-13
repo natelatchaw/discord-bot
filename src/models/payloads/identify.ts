@@ -2,7 +2,7 @@ import { Payload, PayloadData } from '../payload';
 
 /**
  * OPCODE 2 IDENTIFY
- * @class Identify
+ * @see https://discord.com/developers/docs/topics/gateway#identify
  * @property { number } op - The OPCode identifying the payload
  * @property { IdentifyData } d - the payload's encapsulated data
  */
@@ -25,7 +25,7 @@ export class Identify implements Payload {
 
 /**
  * OPCODE 2 IDENTIFY
- * @class IdentifyData
+ * @see https://discord.com/developers/docs/topics/gateway#identify-identify-structure
  * @property { string } token
  * @property { number } intents
  * @property { object } properties

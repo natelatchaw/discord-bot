@@ -4,10 +4,10 @@ import { Snowflake } from './snowflake';
 import { User } from './user';
 
 /**
- * @interface Prescence
+ * @interface Presence
  * @see https://discord.com/developers/docs/topics/gateway#presence-update
  */
-export interface Prescence {
+export interface Presence {
     /**
      * @param { User } user - the user presence is being updated for
      * @see https://discord.com/developers/docs/resources/user#user-object

@@ -2,7 +2,7 @@ import { Payload, PayloadData } from '../payload';
 
 /**
  * OPCODE 1 HEARTBEAT
- * @class Heartbeat
+ * @see https://discord.com/developers/docs/topics/gateway#heartbeat
  * @property { number } op - The OPCode identifying the payload
  * @property { HeartbeatData } d - the payload's encapsulated data
  */
@@ -23,6 +23,6 @@ export class Heartbeat implements Payload {
 
 /**
  * OPCODE 1 HEARTBEAT
- * @class HeartbeatData
+ * @see https://discord.com/developers/docs/topics/gateway#heartbeat-example-heartbeat
  */
 export class HeartbeatData extends Number implements PayloadData { }

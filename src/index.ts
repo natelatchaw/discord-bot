@@ -8,20 +8,44 @@ export { Console } from './console';
 export { Core } from './core';
 
 // ./models
-export { File } from './models/file';
 export { Payload } from './models/payload';
 
 // ./models/events
+export { ChannelCreate } from './models/events/channelCreate';
+export { ChannelDelete } from './models/events/channelDelete';
+export { ChannelPinsUpdate } from './models/events/channelPinsUpdate';
+export { ChannelUpdate } from './models/events/channelUpdate';
+export { GuildBanAdd } from './models/events/guildBanAdd';
+export { GuildBanRemove } from './models/events/guildBanRemove';
 export { GuildCreate } from './models/events/guildCreate';
+export { GuildDelete } from './models/events/guildDelete';
+export { GuildEmojisUpdate } from './models/events/guildEmojisUpdate';
+export { GuildIntegrationsUpdate } from './models/events/guildIntegrationsUpdate';
+export { GuildMemberAdd } from './models/events/guildMemberAdd';
+export { GuildMemberRemove } from './models/events/guildMemberRemove';
+export { GuildMembersChunk } from './models/events/guildMembersChunk';
+export { GuildMemberUpdate } from './models/events/guildMemberUpdate';
+export { GuildRoleCreate } from './models/events/guildRoleCreate';
+export { GuildRoleDelete } from './models/events/guildRoleDelete';
+export { GuildRoleUpdate } from './models/events/guildRoleUpdate';
+export { GuildUpdate } from './models/events/guildUpdate';
 export { Ready } from './models/events/ready';
+export { ThreadCreate } from './models/events/threadCreate';
+export { ThreadDelete } from './models/events/threadDelete';
+export { ThreadListSync } from './models/events/threadListSync';
+export { ThreadMembersUpdate } from './models/events/threadMembersUpdate';
+export { ThreadMemberUpdate } from './models/events/threadMemberUpdate';
+export { ThreadUpdate } from './models/events/threadUpdate';
 
 // ./models/payloads
 export { Dispatch, Event } from './models/payloads/dispatch';
-export { Heartbeat } from './models/payloads/heartbeat';
-export { HeartbeatACK } from './models/payloads/heartbeatACK';
-export { Hello } from './models/payloads/hello';
-export { Identify } from './models/payloads/identify';
-export { Resume } from './models/payloads/resume';
+export { Heartbeat, HeartbeatData } from './models/payloads/heartbeat';
+export { HeartbeatACK, HeartbeatACKData } from './models/payloads/heartbeatACK';
+export { Hello, HelloData } from './models/payloads/hello';
+export { Identify, IdentifyData } from './models/payloads/identify';
+export { InvalidSession, InvalidSessionData } from './models/payloads/invalidSession';
+export { Reconnect, ReconnectData } from './models/payloads/reconnect';
+export { Resume, ResumeData } from './models/payloads/resume';
 
 // ./models/resources
 export { Activity } from './models/resources/activity';
@@ -38,7 +62,7 @@ export { Feature } from './models/resources/feature';
 export { Guild } from './models/resources/guild';
 export { Member } from './models/resources/member';
 export { Overwrite } from './models/resources/overwrite';
-export { Prescence } from './models/resources/presence';
+export { Presence } from './models/resources/presence';
 export { Role } from './models/resources/role';
 export { Snowflake } from './models/resources/snowflake';
 export { Stage } from './models/resources/stage';
