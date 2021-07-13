@@ -63,42 +63,46 @@ export class Core {
       const payload: Payload = JSON.parse(data.toString());
       Console.log(`RECV OPCODE ${payload.op}`);
       // Console.warn(JSON.stringify(payload));
-      if (payload.op == 0) await this.onDispatch(payload as Dispatch<Event>);
+      // if (payload.op == 0) await this.onDispatch(payload as Dispatch<Event>);
       if (payload.op == 1) await this.onHeartbeat();
       if (payload.op == 10) await this.onHello(payload as Hello);
       if (payload.op == 11) this.acknowledged = true;
     }
 
     /**
-     * @event onMessage - Event invoked on receipt of websocket close
+     * @event onClose - Event invoked on receipt of websocket close
      * @param { number } code
      * @param { string } reason
      */
-    public onClose = (code: number, reason: string) => {
+    public onClose = (code: number, reason: string): void => {
       Console.log(`RECV CLCODE ${code}: ${reason}`);
+    }
+
+    /**
+     * @callback onDispatchCallback
+     * @param { Dispatch<Event> } dispatch
+     */
+    /**
+     * @event onDispatch
+     * @param { onDispatchCallback } listener
+     * @return { void }
+     */
+    public onDispatch = (listener: (dispatch: Dispatch<Event>) => void): void => {
+      this.client.onMessage((data: WebSocket.Data) => {
+        // parse the data to a Payload object
+        const payload: Payload = JSON.parse(data.toString()) as Payload;
+        // if the Payload object is not a Dispatch object, return
+        if (payload.op !== 0) return;
+        // parse the data to a Dispatch object
+        const dispatch: Dispatch<Event> = JSON.parse(data.toString()) as Dispatch<Event>;
+        // pass the Dispatch object
+        listener(dispatch);
+      });
     }
 
     // #endregion
 
     // #region OPCODE RESPONSES
-
-    /**
-     * Invoked on receipt of OPCODE 0 DISPATCH
-     * @param { Dispatch<Event> } payload
-     */
-    private async onDispatch(payload: Dispatch<Event>) {
-      switch (payload.t) {
-        case 'READY':
-          const ready: Dispatch<Ready> = payload as Dispatch<Ready>;
-          this.session_id = ready.d.session_id;
-          break;
-        case 'GUILD_CREATE':
-          const guildCreate: Dispatch<GuildCreate> = payload as Dispatch<GuildCreate>;
-          Console.highlight(`Received guild ${guildCreate.d.name}`);
-        default:
-          break;
-      }
-    }
 
     /**
      * Invoked on receipt of OPCODE 1 HEARTBEAT
