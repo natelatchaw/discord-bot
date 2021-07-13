@@ -1,6 +1,6 @@
 /**
  * OPCODE PAYLOAD
- * @class Payload
+ * @see https://discord.com/developers/docs/topics/gateway#payloads
  * @property { number } op - The OPCode identifying the payload
  * @property { PayloadData } d - the payload's encapsulated data
  */
@@ -13,6 +13,6 @@ export interface Payload {
 
 /**
  * OPCODE PAYLOAD
- * @class PayloadData
+ * @see https://discord.com/developers/docs/topics/gateway#payloads-gateway-payload-structure
  */
 export interface PayloadData { }
