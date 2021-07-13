@@ -16,7 +16,7 @@ export { GuildCreate } from './models/events/guildCreate';
 export { Ready } from './models/events/ready';
 
 // ./models/payloads
-export { Dispatch } from './models/payloads/dispatch';
+export { Dispatch, Event } from './models/payloads/dispatch';
 export { Heartbeat } from './models/payloads/heartbeat';
 export { HeartbeatACK } from './models/payloads/heartbeatACK';
 export { Hello } from './models/payloads/hello';
