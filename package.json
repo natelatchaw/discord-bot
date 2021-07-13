@@ -14,12 +14,13 @@
   "dependencies": {
     "colors": "^1.4.0",
     "dotenv": "^10.0.0",
+    "g": "^2.0.1",
     "ws": "^7.5.3"
   },
   "devDependencies": {
     "@types/ws": "^7.4.6",
-    "@typescript-eslint/eslint-plugin": "^4.28.2",
-    "@typescript-eslint/parser": "^4.28.2",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
     "eslint": "^7.30.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-standard": "^16.0.3",

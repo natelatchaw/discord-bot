@@ -1,6 +1,6 @@
-import { Member } from "../resources/member";
-import { Presence } from "../resources/presence";
-import { Snowflake } from "../resources/snowflake";
+import { Member } from '../resources/member';
+import { Presence } from '../resources/presence';
+import { Snowflake } from '../resources/snowflake';
 
 /**
  * @interface GuildMembersChunk

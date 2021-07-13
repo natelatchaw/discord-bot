@@ -1,5 +1,5 @@
-import { Snowflake } from "../resources/snowflake";
-import { ThreadMember } from "../resources/threadMember";
+import { Snowflake } from '../resources/snowflake';
+import { ThreadMember } from '../resources/threadMember';
 
 /**
  * @interface ThreadMembersUpdate

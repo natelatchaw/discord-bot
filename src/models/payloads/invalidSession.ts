@@ -1,4 +1,4 @@
-import { Payload, PayloadData } from "../payload";
+import { Payload, PayloadData } from '../payload';
 
 /**
  * OPCODE 9 INVALID SESSION
@@ -14,12 +14,12 @@ export class InvalidSession implements Payload {
 
     /**
      * @constructor
-     * @param { ResumeData } data
+     * @param { boolean } resumable
      */
     public constructor(resumable: boolean) {
-        this.d = resumable;
-        this.s = undefined;
-        this.t = undefined;
+      this.d = resumable;
+      this.s = undefined;
+      this.t = undefined;
     }
 }
 

@@ -1,5 +1,5 @@
-import { Snowflake } from "../resources/snowflake";
-import { User } from "../resources/user";
+import { Snowflake } from '../resources/snowflake';
+import { User } from '../resources/user';
 
 /**
  * @interface GuildMemberUpdate
@@ -7,7 +7,7 @@ import { User } from "../resources/user";
  */
 export interface GuildMemberUpdate extends Event {
     /**
-     * @param { Snowflake } guild_id - 	the id of the guild
+     * @param { Snowflake } guild_id - the id of the guild
      */
     guild_id: Snowflake;
 

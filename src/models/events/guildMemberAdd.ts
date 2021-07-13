@@ -1,5 +1,5 @@
-import { Member } from "../resources/member";
-import { Snowflake } from "../resources/snowflake";
+import { Member } from '../resources/member';
+import { Snowflake } from '../resources/snowflake';
 
 /**
  * @interface GuildMemberAdd

@@ -1,4 +1,4 @@
-import { Snowflake } from "../resources/snowflake";
+import { Snowflake } from '../resources/snowflake';
 
 /**
  * @interface ChannelPinsUpdate

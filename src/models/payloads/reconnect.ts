@@ -1,4 +1,4 @@
-import { Payload, PayloadData } from "../payload";
+import { Payload, PayloadData } from '../payload';
 
 /**
  * OPCODE 7 RECONNECT
@@ -14,12 +14,11 @@ export class Reconnect implements Payload {
 
     /**
      * @constructor
-     * @param { ResumeData } data
      */
     public constructor() {
-        this.d = new ReconnectData();
-        this.s = undefined;
-        this.t = undefined;
+      this.d = new ReconnectData();
+      this.s = undefined;
+      this.t = undefined;
     }
 }
 

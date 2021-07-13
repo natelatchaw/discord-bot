@@ -1,5 +1,5 @@
-import { Emoji } from "../resources/emoji";
-import { Snowflake } from "../resources/snowflake";
+import { Emoji } from '../resources/emoji';
+import { Snowflake } from '../resources/snowflake';
 
 /**
  * @interface GuildEmojisUpdate

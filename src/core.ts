@@ -2,8 +2,6 @@ import { URL } from 'url';
 import WebSocket from 'ws';
 import { Client } from './client';
 import { Console } from './console';
-import { GuildCreate } from './models/events/guildCreate';
-import { Ready } from './models/events/ready';
 import { Payload } from './models/payload';
 import { Dispatch } from './models/payloads/dispatch';
 import { Hello } from './models/payloads/hello';
