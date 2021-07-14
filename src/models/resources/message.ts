@@ -1,6 +1,15 @@
 import { Application } from './application';
+import { Attachment } from './attachment';
 import { Channel } from './channel';
+import { ChannelMention } from './channelMention';
+import { Component } from './component';
+import { Embed } from './embed';
 import { Member } from './member';
+import { MessageActivity } from './messageActivity';
+import { MessageInteraction } from './messageInteraction';
+import { MessageReference } from './messageReference';
+import { MessageStickerItem } from './messageStickerItem';
+import { Reaction } from './reaction';
 import { Snowflake } from './snowflake';
 import { User } from './user';
 
@@ -100,7 +109,7 @@ export interface Message {
      * @property { Array<Reaction> | undefined } reactions - reactions to the message
      * @see https://discord.com/developers/docs/resources/channel#reaction-object
      */
-    reactions?: Array<Reactions>;
+    reactions?: Array<Reaction>;
 
     /**
      * @property { number | string | undefined } nonce - used for validating a message was sent
@@ -120,6 +129,7 @@ export interface Message {
     /**
      * @property { number } type - type of message
      * @see https://discord.com/developers/docs/resources/channel#message-object-message-types
+     * @todo Add MessageType extends Number enum
      */
     type: number;
 
