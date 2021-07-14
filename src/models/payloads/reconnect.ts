@@ -1,29 +1,29 @@
-import { Payload, PayloadData } from '../payload';
+import { GatewayPayload } from '../gatewayPayload';
 
 /**
  * OPCODE 7 RECONNECT
+ * @interface Reconnect
  * @see https://discord.com/developers/docs/topics/gateway#reconnect
- * @property { number } op - The OPCode identifying the payload
- * @property { ResumeData } d - the payload's encapsulated data
  */
-export class Reconnect implements Payload {
-    public op: number = 7;
-    public d: ReconnectData;
-    public s?: number;
-    public t?: string;
+export interface Reconnect extends GatewayPayload {
+  /**
+   * @property { number } op - the opcode for the payload
+   */
+  op: 7;
 
-    /**
-     * @constructor
-     */
-    public constructor() {
-      this.d = new ReconnectData();
-      this.s = undefined;
-      this.t = undefined;
-    }
+  /**
+   * @property { null } d - constant null for reconnect payloads
+   * @see https://discord.com/developers/docs/topics/gateway#reconnect-example-gateway-reconnect
+   */
+  d: null;
+
+  /**
+   * @property { null } s - not applicable for non-zero opcode payloads
+   */
+  s: null;
+
+  /**
+   * @property { null } t - not applicable for non-zero opcode payloads
+   */
+  t: null;
 }
-
-/**
- * OPCODE 7 RECONNECT
- * @see https://discord.com/developers/docs/topics/gateway#reconnect-example-gateway-reconnect
- */
-export class ReconnectData implements PayloadData { this = null }

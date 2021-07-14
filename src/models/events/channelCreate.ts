@@ -1,4 +1,4 @@
-import { Event } from '../payloads/dispatch';
+import { Event } from '../event';
 import { Channel } from '../resources/channel';
 
 /**

@@ -1,54 +1,32 @@
-import { Payload, PayloadData } from '../payload';
+import { GatewayPayload } from '../gatewayPayload';
+import { Event } from '../event';
 
 /**
  * OPCODE 0 DISPATCH
- * @class Dispatch
- * @property { number } op - The OPCode identifying the payload
- * @property { HeartbeatData } d - the payload's encapsulated data
+ * @interface Dispatch
+ * @see https://discord.com/developers/docs/topics/opcodes-and-status-codes#gateway-gateway-opcodes
  */
-export class Dispatch<T extends Event> implements Payload {
+export interface Dispatch<T extends Event> extends GatewayPayload {
     /**
-     * @param { number } op - opcode for the payload
+     * @property { number } op - opcode for the payload
      * @see https://discord.com/developers/docs/topics/opcodes-and-status-codes#gateway-opcodes
      */
-    op: number = 0;
+    op: number;
 
     /**
-     * @param { Event } d - event data
+     * @property { Event } d - event data
      * @see https://discord.com/developers/docs/topics/gateway#commands-and-events-gateway-events
      */
     d: T;
 
     /**
-     * @param { number | undefined } s - sequence number, used for resuming sessions and heartbeats
+     * @property { number | undefined } s - sequence number, used for resuming sessions and heartbeats
      */
     s?: number;
 
     /**
-     * @param { string | undefined } t - the event name for this payload
+     * @property { string | undefined } t - the event name for this payload
      * @see https://discord.com/developers/docs/topics/gateway#event-names
      */
     t?: string;
-
-    /**
-     * @constructor
-     * @param { T } event
-     * @param { number | undefined } sequence
-     * @param { string | undefined } name
-     */
-    public constructor(
-        event: T,
-        sequence?: number,
-        name?: string,
-    ) {
-      this.d = event;
-      this.s = sequence;
-      this.t = name;
-    }
 }
-
-/**
- * OPCODE 0 DISPATCH
- * @class DispatchData
- */
-export interface Event extends PayloadData { }

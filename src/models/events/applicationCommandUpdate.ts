@@ -1,4 +1,4 @@
-import { Event } from '../payloads/dispatch';
+import { Event } from '../event';
 import { ApplicationCommand } from '../resources/applicationCommand';
 import { Snowflake } from '../resources/snowflake';
 
@@ -8,7 +8,7 @@ import { Snowflake } from '../resources/snowflake';
  */
 export interface ApplicationCommandUpdate extends Event, ApplicationCommand {
     /**
-     * @param { Snowflake } guild_id - id of the guild the command is in
+     * @property { Snowflake | undefined } guild_id - id of the guild the command is in
      */
-    guild_id: Snowflake;
+    guild_id?: Snowflake;
 }

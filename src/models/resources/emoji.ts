@@ -8,45 +8,45 @@ import { User } from './user';
  */
 export interface Emoji {
     /**
-     * @param { Snowflake | undefined } id - emoji id
+     * @property { Snowflake | undefined } id - emoji id
      * @see https://discord.com/developers/docs/reference#image-formatting
      */
     id?: Snowflake;
 
     /**
-     * @param { string | undefined } name - emoji name (can be null only in reaction emoji objects)
+     * @property { string | undefined } name - emoji name (can be null only in reaction emoji objects)
      */
     name?: string;
 
     /**
-     * @param { Array<Role> } roles - roles allowed to use this emoji
+     * @property { Array<Role> } roles - roles allowed to use this emoji
      * @see https://discord.com/developers/docs/topics/permissions#role-object
      */
     roles: Array<Role>;
 
     /**
-     * @param { User } user - user that created this emoji
+     * @property { User } user - user that created this emoji
      * @see https://discord.com/developers/docs/resources/user#user-object
      */
     user: User;
 
     /**
-     * @param { boolean } require_colons - whether this emoji must be wrapped in colons
+     * @property { boolean } require_colons - whether this emoji must be wrapped in colons
      */
     require_colons: boolean;
 
     /**
-     * @param { boolean } managed - whether this emoji is managed
+     * @property { boolean } managed - whether this emoji is managed
      */
     managed: boolean;
 
     /**
-     * @param { boolean } animated - whether this emoji is animated
+     * @property { boolean } animated - whether this emoji is animated
      */
     animated: boolean;
 
     /**
-     * @param { boolean } available - whether this emoji can be used, may be false due to loss of Server Boosts
+     * @property { boolean } available - whether this emoji can be used, may be false due to loss of Server Boosts
      */
     available: boolean;
 }

@@ -7,12 +7,12 @@ import { User } from '../resources/user';
  */
 export interface GuildBanRemove extends Event {
     /**
-     * @param { Snowflake } guild_id - id of the guild
+     * @property { Snowflake } guild_id - id of the guild
      */
     guild_id: Snowflake;
 
     /**
-     * @param { User } user - the unbanned user
+     * @property { User } user - the unbanned user
      * @see https://discord.com/developers/docs/resources/user#user-object
      */
     user: User;

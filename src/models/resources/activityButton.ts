@@ -4,12 +4,12 @@
  */
 export interface ActivityButton {
     /**
-     * @param { string } label - the text shown on the button (1-32 characters)
+     * @property { string } label - the text shown on the button (1-32 characters)
      */
     label: string;
 
     /**
-     * @param { string } url - the url opened when clicking the button (1-512 characters)
+     * @property { string } url - the url opened when clicking the button (1-512 characters)
      */
     url: string;
 }

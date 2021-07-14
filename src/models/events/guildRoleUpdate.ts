@@ -7,12 +7,12 @@ import { Snowflake } from '../resources/snowflake';
  */
 export interface GuildRoleUpdate extends Event {
     /**
-     * @param { Snowflake } guild_id - the id of the guild
+     * @property { Snowflake } guild_id - the id of the guild
      */
     guild_id: Snowflake;
 
     /**
-     * @param { Role } role - the role updated
+     * @property { Role } role - the role updated
      * @see https://discord.com/developers/docs/topics/permissions#role-object
      */
     role: Role;

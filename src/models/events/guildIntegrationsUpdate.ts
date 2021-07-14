@@ -6,7 +6,7 @@ import { Snowflake } from '../resources/snowflake';
  */
 export interface GuildIntegrationsUpdate extends Event {
     /**
-     * @param { Snowflake } guild_id - id of the guild whose integrations were updated
+     * @property { Snowflake } guild_id - id of the guild whose integrations were updated
      */
     guild_id: Snowflake;
 }

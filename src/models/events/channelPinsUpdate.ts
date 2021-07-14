@@ -6,18 +6,18 @@ import { Snowflake } from '../resources/snowflake';
  */
 export interface ChannelPinsUpdate extends Event {
     /**
-     * @param { Snowflake } guild_id - the id of the guild
+     * @property { Snowflake | undefined } guild_id - the id of the guild
      */
-    guild_id: Snowflake;
+    guild_id?: Snowflake;
 
     /**
-     * @param { Snowflake } channel_id - the id of the channel
+     * @property { Snowflake } channel_id - the id of the channel
      */
     channel_id: Snowflake;
 
     /**
-     * @param { string | undefined } last_pin_timestamp - the time at which the most recent pinned message was pinned
+     * @property { string | undefined | null } last_pin_timestamp - the time at which the most recent pinned message was pinned
      * ISO8601 formatted timestamp
      */
-    last_pin_timestamp?: string;
+    last_pin_timestamp?: string | null;
 }

@@ -8,7 +8,9 @@ export { Console } from './console';
 export { Core } from './core';
 
 // ./models
-export { Payload } from './models/payload';
+export { Event } from './models/event';
+export { EventData } from './models/eventData';
+export { GatewayPayload } from './models/gatewayPayload';
 
 // ./models/events
 export { ChannelCreate } from './models/events/channelCreate';
@@ -38,19 +40,19 @@ export { ThreadMemberUpdate } from './models/events/threadMemberUpdate';
 export { ThreadUpdate } from './models/events/threadUpdate';
 
 // ./models/payloads
-export { Dispatch, Event } from './models/payloads/dispatch';
+export { Dispatch } from './models/payloads/dispatch';
 export { Heartbeat, HeartbeatData } from './models/payloads/heartbeat';
-export { HeartbeatACK, HeartbeatACKData } from './models/payloads/heartbeatACK';
+export { HeartbeatACK } from './models/payloads/heartbeatACK';
 export { Hello, HelloData } from './models/payloads/hello';
 export { Identify, IdentifyData } from './models/payloads/identify';
 export { InvalidSession, InvalidSessionData } from './models/payloads/invalidSession';
-export { Reconnect, ReconnectData } from './models/payloads/reconnect';
+export { Reconnect } from './models/payloads/reconnect';
 export { Resume, ResumeData } from './models/payloads/resume';
 
 // ./models/resources
 export { Activity } from './models/resources/activity';
 export { ActivityAssets } from './models/resources/activityAssets';
-export { ActivityButton } from './models/resources/activityButtons';
+export { ActivityButton } from './models/resources/activityButton';
 export { ActivityEmoji } from './models/resources/activityEmoji';
 export { ActivityParty } from './models/resources/activityParty';
 export { ActivitySecrets } from './models/resources/activitySecrets';
@@ -71,6 +73,7 @@ export { TeamMembers } from './models/resources/teamMembers';
 export { ThreadMember } from './models/resources/threadMember';
 export { ThreadMetadata } from './models/resources/threadMetadata';
 export { Timestamps } from './models/resources/timestamps';
+export { UpdatePresence } from './models/resources/updatePresence';
 export { User } from './models/resources/user';
 export { WelcomeScreen } from './models/resources/welcomeScreen';
 export { WelcomeScreenChannel } from './models/resources/welcomeScreenChannel';

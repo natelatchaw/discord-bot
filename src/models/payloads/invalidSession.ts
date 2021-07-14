@@ -1,30 +1,36 @@
-import { Payload, PayloadData } from '../payload';
+import { EventData } from '../eventData';
+import { GatewayPayload } from '../gatewayPayload';
 
 /**
  * OPCODE 9 INVALID SESSION
+ * @interface InvalidSession
  * @see https://discord.com/developers/docs/topics/gateway#invalid-session
- * @property { number } op - The OPCode identifying the payload
- * @property { InvalidSessionData } d - the payload's encapsulated data
  */
-export class InvalidSession implements Payload {
-    public op: number = 9;
-    public d: InvalidSessionData;
-    public s?: number;
-    public t?: string;
+export interface InvalidSession extends GatewayPayload {
+  /**
+   * @property { number } op - the opcode for the payload
+   */
+  op: 9;
 
-    /**
-     * @constructor
-     * @param { boolean } resumable
-     */
-    public constructor(resumable: boolean) {
-      this.d = resumable;
-      this.s = undefined;
-      this.t = undefined;
-    }
+  /**
+   * @property { InvalidSessionData } d - object containing the invalid session data
+   */
+  d: InvalidSessionData;
+
+  /**
+   * @property { null } s - not applicable for non-zero opcode payloads
+   */
+  s: null;
+
+  /**
+   * @property { null } t - not applicable for non-zero opcode payloads
+   */
+  t: null;
 }
 
 /**
  * OPCODE 9 INVALID SESSION
+ * @interface InvalidSessionData
  * @see https://discord.com/developers/docs/topics/gateway#invalid-session-example-gateway-invalid-session
  */
-export class InvalidSessionData extends Boolean implements PayloadData { }
+export class InvalidSessionData extends Boolean implements EventData { }

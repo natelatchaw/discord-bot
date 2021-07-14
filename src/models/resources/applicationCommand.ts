@@ -7,39 +7,39 @@ import { Snowflake } from './snowflake';
  */
 export interface ApplicationCommand {
     /**
-     * @param { Snowflake } id - unique id of the command
+     * @property { Snowflake } id - unique id of the command
      */
     id: Snowflake;
 
     /**
-     * @param { Snowflake } application_id - unique id of the parent application
+     * @property { Snowflake } application_id - unique id of the parent application
      */
     application_id: Snowflake;
 
     /**
-     * @param { Snowflake } guild_id - guild id of the command, if not global
+     * @property { Snowflake | undefined } guild_id - guild id of the command, if not global
      */
-    guild_id: Snowflake;
+    guild_id?: Snowflake;
 
     /**
-     * @param { string } name - 1-32 lowercase character name matching ^[\w-]{1,32}$
+     * @property { string } name - 1-32 lowercase character name matching ^[\w-]{1,32}$
      */
     name: string;
 
     /**
-     * @param { string } description - 1-100 character description
+     * @property { string } description - 1-100 character description
      */
     description: string;
 
     /**
-     * @param { Array<ApplicationCOmmandOption> } options - the parameters for the command
+     * @property { Array<ApplicationCOmmandOption> | undefined } options - the parameters for the command
      * @see https://discord.com/developers/docs/interactions/slash-commands#application-command-object-application-command-option-structure
      */
-    options: Array<ApplicationCommandOption>;
+    options?: Array<ApplicationCommandOption>;
 
     /**
-     * @param { boolean } default_permission - whether the command is enabled by default when the app is added to a guild
+     * @property { boolean | undefined } default_permission - whether the command is enabled by default when the app is added to a guild
      * default true
      */
-    default_permission: boolean;
+    default_permission?: boolean;
 }

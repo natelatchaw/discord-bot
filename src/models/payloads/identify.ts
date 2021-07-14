@@ -1,57 +1,80 @@
-import { Payload, PayloadData } from '../payload';
+import { EventData } from '../eventData';
+import { GatewayPayload } from '../gatewayPayload';
+import { UpdatePresence } from '../resources/updatePresence';
 
 /**
  * OPCODE 2 IDENTIFY
+ * @interface Identify
  * @see https://discord.com/developers/docs/topics/gateway#identify
- * @property { number } op - The OPCode identifying the payload
- * @property { IdentifyData } d - the payload's encapsulated data
  */
-export class Identify implements Payload {
-    public op: number = 2;
-    public d: IdentifyData;
-    public s?: number;
-    public t?: string;
+export interface Identify extends GatewayPayload {
+  /**
+   * @property { number } op - the opcode for the payload
+   */
+  op: 2;
 
-    /**
-     * @constructor
-     * @param { Identify } data
-     */
-    public constructor(data: IdentifyData) {
-      this.d = data;
-      this.s = undefined;
-      this.t = undefined;
-    }
+  /**
+   * @property { IdentifyData } d - object containing the identify event
+   * @see https://discord.com/developers/docs/topics/gateway#identify-identify-structure
+   */
+  d: IdentifyData;
+
+  /**
+   * @property { null } s - not applicable for non-zero opcode payloads
+   */
+  s: null;
+
+  /**
+   * @property { null } t - not applicable for non-zero opcode payloads
+   */
+  t: null;
 }
 
 /**
  * OPCODE 2 IDENTIFY
+ * @interface IdentifyData
  * @see https://discord.com/developers/docs/topics/gateway#identify-identify-structure
- * @property { string } token
- * @property { number } intents
- * @property { object } properties
  */
-export class IdentifyData implements PayloadData {
-    public token: string;
-    public intents: number;
-    public properties: object;
-    public compress: boolean;
+export interface IdentifyData extends EventData {
+  /**
+   * @property { string } token - authentication token
+   */
+  token: string;
 
-    /**
-     * @constructor
-     * @param { string } token
-     * @param { number } intents
-     * @param { object } properties
-     * @param { boolean } compress
-     */
-    public constructor(
-        token: string,
-        intents: number,
-        properties: object,
-        compress: boolean = false,
-    ) {
-      this.token = token;
-      this.intents = intents;
-      this.properties = properties;
-      this.compress = compress;
-    }
+  /**
+   * @property { object } properties - connection properties
+   * @see https://discord.com/developers/docs/topics/gateway#identify-identify-connection-properties
+   */
+  properties: object;
+
+  /**
+   * @property { boolean | undefined } compress - whether this connection supports compression of packets
+   * default: false
+   */
+  compress?: boolean;
+
+  /**
+   * @property { number | undefined } large_threshold - value between 50 and 250, total number of members where the gateway will stop sending offline members in the guild member list
+   * default: 50
+   */
+  large_threshold?: number;
+
+  /**
+   * @property { Array<number> | undefined } shard - used for Guild Sharding
+   * @see https://discord.com/developers/docs/topics/gateway#sharding
+   * array of two integers (shard_id, num_shards)
+   */
+  shard?: Array<number>;
+
+  /**
+   * @property { UpdatePresence | undefined } presence - presence structure for initial presence information
+   * @see https://discord.com/developers/docs/topics/gateway#update-presence-gateway-presence-update-structure
+   */
+  presence?: UpdatePresence;
+
+  /**
+   * @property { number } intents - the Gateway Intents you wish to receive
+   * @see https://discord.com/developers/docs/topics/gateway#gateway-intents
+   */
+  intents: number;
 }

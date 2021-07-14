@@ -7,52 +7,52 @@ import { User } from '../resources/user';
  */
 export interface GuildMemberUpdate extends Event {
     /**
-     * @param { Snowflake } guild_id - the id of the guild
+     * @property { Snowflake } guild_id - the id of the guild
      */
     guild_id: Snowflake;
 
     /**
-     * @param { Array<Snowflake> } roles - user role ids
+     * @property { Array<Snowflake> } roles - user role ids
      */
     roles: Array<Snowflake>;
 
     /**
-     * @param { User } user - the user
+     * @property { User } user - the user
      * @see https://discord.com/developers/docs/resources/user#user-object
      */
     user: User;
 
     /**
-     * @param { string | undefined } nick - nickname of the user in the guild
+     * @property { string | undefined | null } nick - nickname of the user in the guild
      */
     nick?: string;
 
     /**
-     * @param { string | undefined } joined_at - when the user joined the guild
+     * @property { string | null } joined_at - when the user joined the guild
      * ISO8601 formatted timestamp
      */
-    joined_at?: string;
+    joined_at?: string | null;
 
     /**
-     * @param { string | undefined } premium_since - when the user starting boosting the guild
+     * @property { string | undefined | null } premium_since - when the user starting boosting the guild
      * @see https://support.discord.com/hc/en-us/articles/360028038352-Server-Boosting-
      * ISO8601 formatted timestamp
      */
-    premium_since?: string;
+    premium_since?: string | null;
 
     /**
-     * @param { boolean } deaf - whether the user is deafened in voice channels
+     * @property { boolean | undefined } deaf - whether the user is deafened in voice channels
      */
-    deaf: boolean;
+    deaf?: boolean;
 
     /**
-     * @param { boolean } mute - whether the user is muted in voice channels
+     * @property { boolean | undefined } mute - whether the user is muted in voice channels
      */
-    mute: boolean;
+    mute?: boolean;
 
     /**
-     * @param { boolean } pending - whether the user has not yet passed the guild's Membership Screening requirements
+     * @property { boolean | undefined } pending - whether the user has not yet passed the guild's Membership Screening requirements
      * @see https://discord.com/developers/docs/resources/guild#membership-screening-object
      */
-    pending: boolean;
+    pending?: boolean;
 }

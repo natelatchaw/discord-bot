@@ -6,22 +6,22 @@ import { Snowflake } from './snowflake';
  */
 export interface Overwrite {
     /**
-     * @param { Snowflake } id - role or user id
+     * @property { Snowflake } id - role or user id
      */
     id: Snowflake;
 
     /**
-     * @param { number } type - either 0 (role) or 1 (member)
+     * @property { number } type - either 0 (role) or 1 (member)
      */
     type: number;
 
     /**
-     * @param { string } allow - permission bit set
+     * @property { string } allow - permission bit set
      */
     allow: string;
 
     /**
-     * @param { string } deny - permission bit set
+     * @property { string } deny - permission bit set
      */
     deny: string;
 }

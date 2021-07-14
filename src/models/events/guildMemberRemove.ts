@@ -7,12 +7,12 @@ import { User } from '../resources/user';
  */
 export interface GuildMemberRemove extends Event {
     /**
-     * @param { Snowflake } guild_id - the id of the guild
+     * @property { Snowflake } guild_id - the id of the guild
      */
     guild_id: Snowflake;
 
     /**
-     * @param { User } user - the user who was removed
+     * @property { User } user - the user who was removed
      * @see https://discord.com/developers/docs/resources/user#user-object
      */
     user: User;

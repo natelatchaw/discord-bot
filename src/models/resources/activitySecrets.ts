@@ -4,17 +4,17 @@
  */
 export interface ActivitySecrets {
     /**
-     * @param { string } join - the secret for joining a party
+     * @property { string } join - the secret for joining a party
      */
     join: string;
 
     /**
-     * @param { string } spectate - the secret for spectating a game
+     * @property { string } spectate - the secret for spectating a game
      */
     spectate: string;
 
     /**
-     * @param { string } match - the secret for a specific instanced match
+     * @property { string } match - the secret for a specific instanced match
      */
     match: string;
 }

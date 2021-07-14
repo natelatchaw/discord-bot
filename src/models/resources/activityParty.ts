@@ -4,12 +4,12 @@
  */
 export interface ActivityParty {
     /**
-     * @param { string } id - the id of the party
+     * @property { string } id - the id of the party
      */
     id: string;
 
     /**
-     * @param { Array<number> } size - used to show the party's current and maximum size
+     * @property { Array<number> } size - used to show the party's current and maximum size
      * array of two integers (current_size, max_size)
      */
     size: Array<number>;

@@ -9,29 +9,29 @@ import { User } from './user';
  */
 export interface Presence {
     /**
-     * @param { User } user - the user presence is being updated for
+     * @property { User } user - the user presence is being updated for
      * @see https://discord.com/developers/docs/resources/user#user-object
      */
     user: User;
 
     /**
-     * @param { Snowflake } guild_id - id of the guild
+     * @property { Snowflake } guild_id - id of the guild
      */
     guild_id: Snowflake;
 
     /**
-     * @param { string } status - either "idle", "dnd", "online", or "offline"
+     * @property { string } status - either "idle", "dnd", "online", or "offline"
      */
     status: string;
 
     /**
-     * @param { Array<Activity> } activities - user's current activities
+     * @property { Array<Activity> } activities - user's current activities
      * @see https://discord.com/developers/docs/topics/gateway#activity-object
      */
     activities: Array<Activity>;
 
     /**
-     * @param { ClientStatus } client_status - user's platform-dependent status
+     * @property { ClientStatus } client_status - user's platform-dependent status
      * @see https://discord.com/developers/docs/topics/gateway#client-status-object
      */
     client_status: ClientStatus;

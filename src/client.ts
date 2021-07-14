@@ -79,7 +79,12 @@ export class Client {
      * @return { Promise<void> }
      */
     public async beat(interval: number): Promise<void> {
-      const payload: Heartbeat = new Heartbeat(++this.sequence);
+      const payload: Heartbeat = {
+        op: 1,
+        d: ++this.sequence,
+        s: null,
+        t: null,
+      };
       const data: string = JSON.stringify(payload);
       return this.send(data, interval);
     }

@@ -6,12 +6,12 @@ import { Snowflake } from '../resources/snowflake';
  */
 export interface GuildRoleDelete extends Event {
     /**
-     * @param { Snowflake } guild_id - id of the guild
+     * @property { Snowflake } guild_id - id of the guild
      */
     guild_id: Snowflake;
 
     /**
-     * @param { Snowflake } role_id - id of the role
+     * @property { Snowflake } role_id - id of the role
      */
     role_id: Snowflake;
 }

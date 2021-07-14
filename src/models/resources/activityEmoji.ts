@@ -6,17 +6,17 @@ import { Snowflake } from './snowflake';
  */
 export interface ActivityEmoji {
     /**
-     * @param { string } name - the name of the emoji
+     * @property { string } name - the name of the emoji
      */
     name: string;
 
     /**
-     * @param { Snowflake } id - the id of the emoji
+     * @property { Snowflake } id - the id of the emoji
      */
     id: Snowflake;
 
     /**
-     * @param { boolean } animated - whether this emoji is animated
+     * @property { boolean } animated - whether this emoji is animated
      */
     animated: boolean;
 }

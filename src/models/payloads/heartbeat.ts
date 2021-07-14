@@ -1,28 +1,36 @@
-import { Payload, PayloadData } from '../payload';
+import { EventData } from '../eventData';
+import { GatewayPayload } from '../gatewayPayload';
 
 /**
  * OPCODE 1 HEARTBEAT
+ * @interface Heartbeat
  * @see https://discord.com/developers/docs/topics/gateway#heartbeat
- * @property { number } op - The OPCode identifying the payload
- * @property { HeartbeatData } d - the payload's encapsulated data
  */
-export class Heartbeat implements Payload {
-    public op: number = 1;
-    public d: HeartbeatData;
-    public s?: number = undefined;
-    public t?: string = undefined;
+export interface Heartbeat extends GatewayPayload {
+  /**
+   * @property { number } op - the opcode for the payload
+   */
+  op: 1;
 
-    /**
-     * @constructor
-     * @param { number } data
-     */
-    public constructor(data: number) {
-      this.d = data;
-    }
+  /**
+   * @property { EventData } d - the last sequence number received by the client
+   */
+  d: HeartbeatData;
+
+  /**
+   * @property { null } s - not applicable for non-zero opcode payloads
+   */
+  s: null;
+
+  /**
+   * @property { null } t - not applicable for non-zero opcode payloads
+   */
+  t: null;
 }
 
 /**
  * OPCODE 1 HEARTBEAT
+ * @interface HeartbeatData
  * @see https://discord.com/developers/docs/topics/gateway#heartbeat-example-heartbeat
  */
-export class HeartbeatData extends Number implements PayloadData { }
+export interface HeartbeatData extends Number, EventData { }

@@ -7,7 +7,7 @@ import { Snowflake } from '../resources/snowflake';
  */
 export interface GuildMemberAdd extends Event, Member {
     /**
-     * @param { Snowflake } guild_id - id of the guild
+     * @property { Snowflake } guild_id - id of the guild
      */
     guild_id: Snowflake;
 }
