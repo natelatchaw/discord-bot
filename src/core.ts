@@ -1,7 +1,6 @@
 import { URL } from 'url';
 import WebSocket from 'ws';
 import { Client } from './client';
-import { Console } from './console';
 import { GatewayPayload } from './models/gatewayPayload';
 import { Dispatch } from './models/payloads/dispatch';
 import { Hello } from './models/payloads/hello';
@@ -59,7 +58,7 @@ export class Core {
    */
   private onMessage = async (data: WebSocket.Data) => {
     const payload: GatewayPayload = JSON.parse(data.toString());
-    Console.log(`RECV OPCODE ${payload.op}`);
+    console.log(`RECV OPCODE ${payload.op}`);
     // Console.warn(JSON.stringify(payload));
     // if (payload.op == 0) await this.onDispatch(payload as Dispatch<Event>);
     if (payload.op == 1) await this.onHeartbeat();
@@ -73,7 +72,7 @@ export class Core {
    * @param { string } reason
    */
   public onClose = (code: number, reason: string): void => {
-    Console.log(`RECV CLCODE ${code}: ${reason}`);
+    console.log(`RECV CLCODE ${code}: ${reason}`);
   }
 
   /**

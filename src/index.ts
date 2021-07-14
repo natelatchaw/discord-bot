@@ -1,9 +1,6 @@
 // ./client
 export { Client } from './client';
 
-// ./console
-export { Console } from './console';
-
 // ./core
 export { Core } from './core';
 
