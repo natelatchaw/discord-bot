@@ -23,20 +23,20 @@ export interface ApplicationCommandOption {
     description: string;
 
     /**
-     * @property { boolean } required - if the parameter is required or optional
+     * @property { boolean | undefined } required - if the parameter is required or optional
      * default false
      */
-    required: boolean;
+    required?: boolean;
 
     /**
-     * @property { Array<ApplicationCommandOptionChoice> } choices - choices for string and int types for the user to pick from
+     * @property { Array<ApplicationCommandOptionChoice> | undefined } choices - choices for string and int types for the user to pick from
      * @see https://discord.com/developers/docs/interactions/slash-commands#application-command-object-application-command-option-choice-structure
      */
-    choices: Array<ApplicationCommandOptionChoice>;
+    choices?: Array<ApplicationCommandOptionChoice>;
 
     /**
-     * @property { Array<ApplicationCommandOption> } options - if the option is a subcommand or subcommand group type, this nested options will be the parameters
+     * @property { Array<ApplicationCommandOption> | undefined } options - if the option is a subcommand or subcommand group type, this nested options will be the parameters
      * @see https://discord.com/developers/docs/interactions/slash-commands#application-command-object-application-command-option-structure
      */
-    options: Array<ApplicationCommandOption>;
+    options?: Array<ApplicationCommandOption>;
 }

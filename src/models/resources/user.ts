@@ -21,56 +21,56 @@ export interface User {
     discriminator: string;
 
     /**
-     * @property { string | undefined } avatar - the user's avatar hash
+     * @property { string | null } avatar - the user's avatar hash
      * @see https://discord.com/developers/docs/reference#image-formatting
      */
-    avatar?: string;
+    avatar: string | null;
 
     /**
-     * @property { boolean } bot - whether the user belongs to an OAuth2 application
+     * @property { boolean | undefined } bot - whether the user belongs to an OAuth2 application
      */
-    bot: boolean;
+    bot?: boolean;
 
     /**
-     * @property { boolean } system - whether the user is an Official Discord System user (part of the urgent message system)
+     * @property { boolean | undefined } system - whether the user is an Official Discord System user (part of the urgent message system)
      */
-    system: boolean;
+    system?: boolean;
 
     /**
-     * @property { boolean } mfa_enabled - whether the user has two factor enabled on their account
+     * @property { boolean | undefined } mfa_enabled - whether the user has two factor enabled on their account
      */
-    mfa_enabled: boolean;
+    mfa_enabled?: boolean;
 
     /**
-     * @property { string } locale - the user's chosen language option
+     * @property { string | undefined } locale - the user's chosen language option
      */
-    locale: string;
+    locale?: string;
 
     /**
-     * @property { boolean } verified - whether the email on this account has been verified
+     * @property { boolean | undefined } verified - whether the email on this account has been verified
      */
-    verified: boolean;
+    verified?: boolean;
 
     /**
-     * @property { string | undefined } email - the user's email
+     * @property { string | undefined | null } email - the user's email
      */
-    email?: string;
+    email?: string | null;
 
     /**
-     * @property { number } flags - the flags on a user's account
+     * @property { number | undefined } flags - the flags on a user's account
      * @see https://discord.com/developers/docs/resources/user#user-object-user-flags
      */
-    flags: number;
+    flags?: number;
 
     /**
-     * @property { number } premium_type - the type of Nitro subscription on a user's account
+     * @property { number | undefined } premium_type - the type of Nitro subscription on a user's account
      * @see https://discord.com/developers/docs/resources/user#user-object-premium-types
      */
-    premium_type: number;
+    premium_type?: number;
 
     /**
-     * @property { number } public_flags - the public flags on a user's account
+     * @property { number | undefined } public_flags - the public flags on a user's account
      * @see https://discord.com/developers/docs/resources/user#user-object-user-flags
      */
-    public_flags: number;
+    public_flags?: number;
 }

@@ -24,9 +24,9 @@ export interface Activity {
     type: number;
 
     /**
-     * @property { string | undefined } url - stream url, is validated when type is 1
+     * @property { string | undefined | null } url - stream url, is validated when type is 1
      */
-    url?: string;
+    url?: string | null;
 
     /**
      * @property { number } created_at - unix timestamp (in milliseconds) of when the activity was added to the user's session
@@ -34,64 +34,64 @@ export interface Activity {
     created_at: number;
 
     /**
-     * @property { Timestamps } timestamps - unix timestamps for start and/or end of the game
+     * @property { Timestamps | undefined } timestamps - unix timestamps for start and/or end of the game
      * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-timestamps
      */
-    timestamps: Timestamps;
+    timestamps?: Timestamps;
 
     /**
-     * @property { Snowflake } application_id - application id for the game
+     * @property { Snowflake | undefined } application_id - application id for the game
      */
-    application_id: Snowflake;
+    application_id?: Snowflake;
 
     /**
-     * @property { string | undefined } details - what the player is currently doing
+     * @property { string | undefined | null } details - what the player is currently doing
      */
-    details?: string;
+    details?: string | null;
 
     /**
-     * @property { string | undefined } state - the user's current party status
+     * @property { string | undefined | null } state - the user's current party status
      */
-    state?: string;
+    state?: string | null;
 
     /**
-     * @property { Emoji | undefined } emoji - the emoji used for a custom status
+     * @property { Emoji | undefined | null } emoji - the emoji used for a custom status
      * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-emoji
      */
-    emoji?: ActivityEmoji;
+    emoji?: ActivityEmoji | null;
 
     /**
-     * @property { Party } party - information for the current party of the player
+     * @property { Party | undefined } party - information for the current party of the player
      * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-party
      */
-    party: ActivityParty;
+    party?: ActivityParty;
 
     /**
-     * @property { Assets } assets - images for the presence and their hover texts
+     * @property { Assets | undefined } assets - images for the presence and their hover texts
      * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-assets
      */
-    assets: ActivityAssets;
+    assets?: ActivityAssets;
 
     /**
-     * @property { Secrets } secrets - secrets for Rich Presence joining and spectating
+     * @property { Secrets | undefined } secrets - secrets for Rich Presence joining and spectating
      * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-secrets>
      */
-    secrets: ActivitySecrets;
+    secrets?: ActivitySecrets;
 
     /**
-     * @property { boolean } instance - whether or not the activity is an instanced game session
+     * @property { boolean | undefined } instance - whether or not the activity is an instanced game session
      */
-    instance: boolean;
+    instance?: boolean;
 
     /**
-     * @property { number } flags - activity flags OR d together, describes what the payload includes
+     * @property { number | undefined } flags - activity flags OR d together, describes what the payload includes
      * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-flags
      */
-    flags: number;
+    flags?: number;
 
     /**
-     * @property { Array<Button> } buttons - the custom buttons shown in the Rich Presence (max 2)
+     * @property { Array<Button> | undefined } buttons - the custom buttons shown in the Rich Presence (max 2)
      * @see https://discord.com/developers/docs/topics/gateway#activity-object-activity-buttons
      */
-    buttons: Array<ActivityButton>;
+    buttons?: Array<ActivityButton>;
 }

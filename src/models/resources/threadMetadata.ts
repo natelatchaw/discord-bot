@@ -20,7 +20,7 @@ export interface ThreadMetadata {
     archive_timestamp: string;
 
     /**
-     * @property { boolean } locked - when a thread is locked, only users with MANAGE_THREADS can unarchive it
+     * @property { boolean | undefined } locked - when a thread is locked, only users with MANAGE_THREADS can unarchive it
      */
-    locked: boolean;
+    locked?: boolean;
 }

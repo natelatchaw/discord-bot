@@ -111,7 +111,7 @@ export { Overwrite } from './models/resources/overwrite';
 export { Reaction } from './models/resources/reaction';
 export { Role } from './models/resources/role';
 export { Snowflake } from './models/resources/snowflake';
-export { Stage } from './models/resources/stage';
+export { StageInstance as Stage } from './models/resources/stageInstance';
 export { Team } from './models/resources/team';
 export { TeamMembers } from './models/resources/teamMembers';
 export { ThreadMember } from './models/resources/threadMember';

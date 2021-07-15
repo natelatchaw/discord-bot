@@ -6,7 +6,7 @@ import { Role } from './role';
 import { Snowflake } from './snowflake';
 import { VoiceState } from './voiceState';
 import { PresenceUpdate } from '../events/presenceUpdate';
-import { Stage } from './stage';
+import { StageInstance } from './stageInstance';
 import { WelcomeScreen } from './welcomeScreen';
 
 /**
@@ -26,34 +26,34 @@ export interface Guild {
     name: string;
 
     /**
-     * @property { string | undefined } icon - icon hash
+     * @property { string | null } icon - icon hash
      * @see https://discord.com/developers/docs/reference#image-formatting
      */
-    icon?: string;
+    icon: string | null;
 
     /**
-     * @property { string | undefined } icon_hash - icon hash, returned when in the template object
+     * @property { string | undefined | null } icon_hash - icon hash, returned when in the template object
      * @see https://discord.com/developers/docs/reference#image-formatting
      */
-    icon_hash?: string;
+    icon_hash?: string | null;
 
     /**
-     * @property { string | undefined } splash - splash hash
+     * @property { string | null } splash - splash hash
      * @see https://discord.com/developers/docs/reference#image-formatting
      */
-    splash?: string;
+    splash: string | null;
 
     /**
-     * @property { string | undefined } discovery_splash - discovery splash hash; only present for guilds with the "DISCOVERABLE" feature
+     * @property { string | null } discovery_splash - discovery splash hash; only present for guilds with the "DISCOVERABLE" feature
      * @see https://discord.com/developers/docs/reference#image-formatting
      */
-    discovery_splash?: string;
+    discovery_splash: string | null;
 
     /**
-     * @property { boolean } owner - true if the user is the owner of the guild
+     * @property { boolean | undefined } owner - true if the user is the owner of the guild
      * @see https://discord.com/developers/docs/resources/user#get-current-user-guilds
      */
-    owner: boolean;
+    owner?: boolean;
 
     /**
      * @property { Snowflake } owner_id - id of owner
@@ -61,21 +61,21 @@ export interface Guild {
     owner_id: Snowflake;
 
     /**
-     * @property { string } permissions - total permissions for the user in the guild (excludes overwrites)
+     * @property { string | undefined } permissions - total permissions for the user in the guild (excludes overwrites)
      * @see https://discord.com/developers/docs/resources/user#get-current-user-guilds
      */
-    permissions: string;
+    permissions?: string;
 
     /**
-     * @property { string | undefined } region - voice region id for the guild (deprecated)
+     * @property { string | undefined | null } region - voice region id for the guild (deprecated)
      * @see https://discord.com/developers/docs/resources/voice#voice-region-object
      */
-    region?: string;
+    region?: string | null;
 
     /**
-     * @property { Snowflake | undefined } afk_channel_id - id of afk channel
+     * @property { Snowflake | null } afk_channel_id - id of afk channel
      */
-    afk_channel_id?: Snowflake;
+    afk_channel_id: Snowflake | null;
 
     /**
      * @property { number } afk_timeout - afk timeout in seconds
@@ -83,14 +83,14 @@ export interface Guild {
     afk_timeout: number;
 
     /**
-     * @property { boolean } widget_enabled - true if the server widget is enabled
+     * @property { boolean | undefined } widget_enabled - true if the server widget is enabled
      */
-    widget_enabled: boolean;
+    widget_enabled?: boolean;
 
     /**
-     * @property { Snowflake | undefined } widget_channel_id - the channel id that the widget will generate an invite to, or null if set to no invite
+     * @property { Snowflake | undefined | null } widget_channel_id - the channel id that the widget will generate an invite to, or null if set to no invite
      */
-    widget_channel_id?: Snowflake;
+    widget_channel_id?: Snowflake | null;
 
     /**
      * @property { number } verification_level - verification level required for the guild
@@ -135,14 +135,14 @@ export interface Guild {
     mfa_level: number;
 
     /**
-     * @property { Snowflake | undefined } application_id - application id of the guild creator if it is bot-created
+     * @property { Snowflake | null } application_id - application id of the guild creator if it is bot-created
      */
-    application_id?: Snowflake;
+    application_id: Snowflake | null;
 
     /**
-     * @property { Snowflake | undefined } system_channel_id - the id of the channel where guild notices such as welcome messages and boost events are posted
+     * @property { Snowflake | null } system_channel_id - the id of the channel where guild notices such as welcome messages and boost events are posted
      */
-    system_channel_id?: Snowflake;
+    system_channel_id: Snowflake | null;
 
     /**
      * @property { number } system_channel_flags - system channel flags
@@ -151,86 +151,86 @@ export interface Guild {
     system_channel_flags: number;
 
     /**
-     * @property { Snowflake | undefined } rules_channel_id - the id of the channel where Community guilds can display rules and/or guidelines
+     * @property { Snowflake | null } rules_channel_id - the id of the channel where Community guilds can display rules and/or guidelines
      */
-    rules_channel_id?: Snowflake;
+    rules_channel_id: Snowflake | null;
 
     /**
-     * @property { string } joined_at - when this guild was joined at
+     * @property { string | undefined } joined_at - when this guild was joined at
      * ISO8601 formatted timestamp
      */
-    joined_at: string;
+    joined_at?: string;
 
     /**
-     * @property { boolean } large - true if this is considered a large guild
+     * @property { boolean | undefined } large - true if this is considered a large guild
      */
     large?: boolean;
 
     /**
-     * @property { boolean } unavailable - true if this guild is unavailable due to an outage
+     * @property { boolean | undefined } unavailable - true if this guild is unavailable due to an outage
      */
-    unavailable: boolean;
+    unavailable?: boolean;
 
     /**
-     * @property { number } member_count - total number of members in this guild
+     * @property { number | undefined } member_count - total number of members in this guild
      */
-    member_count: number;
+    member_count?: number;
 
     /**
-     * @property { Array<VoiceState> } voice_states - states of members currently in voice channels; lacks the guild_id key
+     * @property { Array<VoiceState> | undefined } voice_states - states of members currently in voice channels; lacks the guild_id key
      * @see https://discord.com/developers/docs/resources/voice#voice-state-object
      */
-    voice_states: Array<VoiceState>;
+    voice_states?: Array<VoiceState>;
 
     /**
-     * @property { Array<Member> } members - users in the guild
+     * @property { Array<Member> | undefined } members - users in the guild
      * @see https://discord.com/developers/docs/resources/guild#guild-member-object
      */
-    members: Array<Member>;
+    members?: Array<Member>;
 
     /**
-     * @property { Array<Channel> } channels - channels in the guild
+     * @property { Array<Channel> | undefined } channels - channels in the guild
      * @see https://discord.com/developers/docs/resources/channel#channel-object
      */
-    channels: Array<Channel>;
+    channels?: Array<Channel>;
 
     /**
-     * @property { Array<Channel> } threads - all active threads in the guild that current user has permission to view
+     * @property { Array<Channel> | undefined } threads - all active threads in the guild that current user has permission to view
      * @see https://discord.com/developers/docs/resources/channel#channel-object
      */
-    threads: Array<Channel>;
+    threads?: Array<Channel>;
 
     /**
-     * @property { Array<Presence> } presences - presences of the members in the guild, will only include non-offline members if the size is greater than large threshold
+     * @property { Array<Presence> | undefined } presences - presences of the members in the guild, will only include non-offline members if the size is greater than large threshold
      * @see https://discord.com/developers/docs/topics/gateway#presence-update
      */
-    presences: Array<PresenceUpdate>
+    presences?: Array<PresenceUpdate>
 
     /**
-     * @property { number | undefined } max_presences - the maximum number of presences for the guild (null is always returned, apart from the largest of guilds)
+     * @property { number | undefined | null } max_presences - the maximum number of presences for the guild (null is always returned, apart from the largest of guilds)
      */
-    max_presences?: number;
+    max_presences?: number | null;
 
     /**
-     * @property { number } max_members - the maximum number of members for the guild
+     * @property { number | undefined } max_members - the maximum number of members for the guild
      */
-    max_members: number;
+    max_members?: number;
 
     /**
-     * @property { string | undefined } vanity_url_code - the vanity url code for the guild
+     * @property { string | null } vanity_url_code - the vanity url code for the guild
      */
-    vanity_url_code?: string;
+    vanity_url_code: string | null;
 
     /**
-     * @property { string | undefined } description - the description of a Community guild
+     * @property { string | null } description - the description of a Community guild
      */
-    description?: string;
+    description: string | null;
 
     /**
-     * @property { string | undefined } banner - banner hash
+     * @property { string | null } banner - banner hash
      * @see https://discord.com/developers/docs/reference#image-formatting
      */
-    banner?: string;
+    banner: string | null;
 
     /**
      * @property { number } premium_tier - premium tier (Server Boost level)
@@ -239,9 +239,9 @@ export interface Guild {
     premium_tier: number;
 
     /**
-     * @property { number } premium_subscription_count - the number of boosts this guild currently has
+     * @property { number | undefined } premium_subscription_count - the number of boosts this guild currently has
      */
-    premium_subscription_count: number;
+    premium_subscription_count?: number;
 
     /**
      * @property { string } preferred_locale - the preferred locale of a Community guild; used in server discovery and notices from Discord; defaults to "en-US"
@@ -249,30 +249,30 @@ export interface Guild {
     preferred_locale: string;
 
     /**
-     * @property { Snowflake | undefined } public_updates_channel_id - the id of the channel where admins and moderators of Community guilds receive notices from Discord
+     * @property { Snowflake | null } public_updates_channel_id - the id of the channel where admins and moderators of Community guilds receive notices from Discord
      */
-    public_updates_channel_id?: Snowflake;
+    public_updates_channel_id: Snowflake | null;
 
     /**
-     * @property { number } max_video_channel_users - the maximum amount of users in a video channel
+     * @property { number | undefined } max_video_channel_users - the maximum amount of users in a video channel
      */
-    max_video_channel_users: number;
+    max_video_channel_users?: number;
 
     /**
-     * @property { number } approximate_member_count - approximate number of members in this guild, returned from the GET /guilds/<id> endpoint when with_counts is true
+     * @property { number | undefined } approximate_member_count - approximate number of members in this guild, returned from the GET /guilds/<id> endpoint when with_counts is true
      */
-    approximate_member_count: number;
+    approximate_member_count?: number;
 
     /**
-     * @property { integer } approximate_presence_count - approximate number of non-offline members in this guild, returned from the GET /guilds/<id> endpoint when with_counts is true
+     * @property { integer | undefined } approximate_presence_count - approximate number of non-offline members in this guild, returned from the GET /guilds/<id> endpoint when with_counts is true
      */
-    approximate_presence_count: number;
+    approximate_presence_count?: number;
 
     /**
-     * @property { WelcomeScreen } welcome_screen - the welcome screen of a Community guild, shown to new members, returned in an Invite's guild object
+     * @property { WelcomeScreen | undefined } welcome_screen - the welcome screen of a Community guild, shown to new members, returned in an Invite's guild object
      * @see https://discord.com/developers/docs/resources/guild#welcome-screen-object
      */
-    welcome_screen: WelcomeScreen;
+    welcome_screen?: WelcomeScreen;
 
     /**
      * @property { number } nsfw_level - guild NSFW level
@@ -281,8 +281,8 @@ export interface Guild {
     nsfw_level: number;
 
     /**
-     * @property { Array<Stage> } stage_instances - Stage instances in the guild
+     * @property { Array<Stage> | undefined } stage_instances - Stage instances in the guild
      * @see https://discord.com/developers/docs/resources/stage-instance#stage-instance-object
      */
-    stage_instances: Array<Stage>;
+    stage_instances?: Array<StageInstance>;
 }

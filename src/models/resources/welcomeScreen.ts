@@ -6,9 +6,9 @@ import { WelcomeScreenChannel } from './welcomeScreenChannel';
  */
 export interface WelcomeScreen {
     /**
-     * @property { string | undefined } description - the server description shown in the welcome screen
+     * @property { string | null } description - the server description shown in the welcome screen
      */
-    description?: string;
+    description: string | null;
 
     /**
      * @property { Array<WelcomeScreenChannel> } welcome_channels - the channels shown in the welcome screen, up to 5

@@ -6,14 +6,14 @@ import { Snowflake } from './snowflake';
  */
 export interface ThreadMember {
     /**
-     * @property { Snowflake } id - the id of the thread
+     * @property { Snowflake | undefined } id - the id of the thread
      */
-    id: Snowflake;
+    id?: Snowflake;
 
     /**
-     * @property { Snowflake } user_id - the id of the user
+     * @property { Snowflake | undefined } user_id - the id of the user
      */
-    user_id: Snowflake;
+    user_id?: Snowflake;
 
     /**
      * @property { string } join_timestamp - the time the current user last joined the thread

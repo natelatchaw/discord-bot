@@ -1,3 +1,4 @@
+import { RoleTags } from './roleTags';
 import { Snowflake } from './snowflake';
 
 /**
@@ -46,24 +47,8 @@ export interface Role {
     mentionable: boolean;
 
     /**
-     * @property { RoleTags } tags - the tags this role has
+     * @property { RoleTags | undefined } tags - the tags this role has
+     * @see https://discord.com/developers/docs/topics/permissions#role-object-role-tags-structure
      */
-    tags: RoleTags;
-}
-
-export interface RoleTags {
-    /**
-     * @property { Snowflake } bot_id - the id of the bot this role belongs to
-     */
-    bot_id: Snowflake;
-
-    /**
-     * @property { Snowflake } integration_id - the id of the integration this role belongs to
-     */
-    integration_id: Snowflake;
-
-    /**
-     * @property { null } premium_subscriber - whether this is the guild's premium subscriber role
-     */
-    premium_subscriber: null;
+    tags?: RoleTags;
 }

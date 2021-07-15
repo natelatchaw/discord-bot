@@ -18,10 +18,10 @@ export interface Application {
     name: string;
 
     /**
-     * @property { string | undefined } icon - the icon hash of the app
+     * @property { string | null } icon - the icon hash of the app
      * @see https://discord.com/developers/docs/reference#image-formatting
      */
-    icon?: string;
+    icon: string | null;
 
     /**
      * @property { string } description - the description of the app
@@ -29,9 +29,9 @@ export interface Application {
     description: string;
 
     /**
-     * @property { Array<string> } rpc_origins - an array of rpc origin urls, if rpc is enabled
+     * @property { Array<string> | undefined } rpc_origins - an array of rpc origin urls, if rpc is enabled
      */
-    rpc_origins: Array<string>;
+    rpc_origins?: Array<string>;
 
     /**
      * @property { boolean } bot_public - when false only app owner can join the app's bot to guilds
@@ -44,20 +44,20 @@ export interface Application {
     bot_require_code_grant: boolean;
 
     /**
-     * @property { string } terms_of_service_url - the url of the app's terms of service
+     * @property { string | undefined } terms_of_service_url - the url of the app's terms of service
      */
-    terms_of_service_url: string;
+    terms_of_service_url?: string;
 
     /**
-     * @property { string } privacy_policy_url - the url of the app's privacy policy
+     * @property { string | undefined } privacy_policy_url - the url of the app's privacy policy
      */
-    privacy_policy_url: string;
+    privacy_policy_url?: string;
 
     /**
-     * @property { User } owner - partial user object containing info on the owner of the application
+     * @property { User | undefined } owner - partial user object containing info on the owner of the application
      * @see https://discord.com/developers/docs/resources/user#user-object
      */
-    owner: User;
+    owner?: User;
 
     /**
      * @property { string } summary - if this application is a game sold on Discord, this field will be the summary field for the store page of its primary sku
@@ -71,35 +71,35 @@ export interface Application {
     verify_key: string;
 
     /**
-     * @property { Team | undefined } team - if the application belongs to a team, this will be a list of the members of that team
+     * @property { Team | null } team - if the application belongs to a team, this will be a list of the members of that team
      * @see https://discord.com/developers/docs/topics/teams#data-models-team-object
      */
-    team?: Team;
+    team: Team | null;
 
     /**
-     * @property { Snowflake } guild_id - if this application is a game sold on Discord, this field will be the guild to which it has been linked
+     * @property { Snowflake | undefined } guild_id - if this application is a game sold on Discord, this field will be the guild to which it has been linked
      */
-    guild_id: Snowflake;
+    guild_id?: Snowflake;
 
     /**
-     * @property { Snowflake } primary_sku_id - if this application is a game sold on Discord, this field will be the id of the "Game SKU" that is created, if exists
+     * @property { Snowflake | undefined } primary_sku_id - if this application is a game sold on Discord, this field will be the id of the "Game SKU" that is created, if exists
      */
-    primary_sku_id: Snowflake;
+    primary_sku_id?: Snowflake;
 
     /**
-     * @property { string } slug - if this application is a game sold on Discord, this field will be the URL slug that links to the store page
+     * @property { string | undefined } slug - if this application is a game sold on Discord, this field will be the URL slug that links to the store page
      */
-    slug: string;
+    slug?: string;
 
     /**
-     * @property { string } cover_image - the application's default rich presence invite cover image hash
+     * @property { string | undefined } cover_image - the application's default rich presence invite cover image hash
      * @see https://discord.com/developers/docs/reference#image-formatting
      */
-    cover_image: string;
+    cover_image?: string;
 
     /**
-     * @property { number } flags - the application's public flags
+     * @property { number | undefined } flags - the application's public flags
      * @see https://discord.com/developers/docs/resources/application#application-application-flags
      */
-    flags: number;
+    flags?: number;
 }

@@ -1,5 +1,6 @@
 import { Message } from './message';
 import { Snowflake } from './snowflake';
+import { User } from './user';
 
 /**
  * @interface MessageInteraction
@@ -28,4 +29,5 @@ export interface MessageInteraction extends Message {
      * @property { User } user - the user who invoked the interaction
      * @see https://discord.com/developers/docs/resources/user#user-object
      */
+    user: User;
 }

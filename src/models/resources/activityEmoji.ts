@@ -11,12 +11,12 @@ export interface ActivityEmoji {
     name: string;
 
     /**
-     * @property { Snowflake } id - the id of the emoji
+     * @property { Snowflake | undefined } id - the id of the emoji
      */
-    id: Snowflake;
+    id?: Snowflake;
 
     /**
-     * @property { boolean } animated - whether this emoji is animated
+     * @property { boolean | undefined } animated - whether this emoji is animated
      */
-    animated: boolean;
+    animated?: boolean;
 }

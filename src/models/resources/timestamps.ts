@@ -4,12 +4,12 @@
  */
 export interface Timestamps {
     /**
-     * @property { number } start - unix time (in milliseconds) of when the activity started
+     * @property { number | undefined } start - unix time (in milliseconds) of when the activity started
      */
-    start: number;
+    start?: number;
 
     /**
-     * @property { number } end - unix time (in milliseconds) of when the activity ends
+     * @property { number | undefined } end - unix time (in milliseconds) of when the activity ends
      */
-    end: number;
+    end?: number;
 }

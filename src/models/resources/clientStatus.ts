@@ -4,17 +4,17 @@
  */
 export interface ClientStatus {
     /**
-     * @property { string } desktop - the user's status set for an active desktop (Windows, Linux, Mac) application session
+     * @property { string | undefined } desktop - the user's status set for an active desktop (Windows, Linux, Mac) application session
      */
-    desktop: string;
+    desktop?: string;
 
     /**
-     * @property { string } mobile - the user's status set for an active mobile (iOS, Android) application session
+     * @property { string | undefined } mobile - the user's status set for an active mobile (iOS, Android) application session
      */
-    mobile: string;
+    mobile?: string;
 
     /**
-     * @property { string } web - the user's status set for an active web (browser, bot account) application session
+     * @property { string | undefined } web - the user's status set for an active web (browser, bot account) application session
      */
-    web: string;
+    web?: string;
 }

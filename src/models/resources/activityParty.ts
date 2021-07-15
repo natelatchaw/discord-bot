@@ -4,13 +4,13 @@
  */
 export interface ActivityParty {
     /**
-     * @property { string } id - the id of the party
+     * @property { string | undefined } id - the id of the party
      */
-    id: string;
+    id?: string;
 
     /**
-     * @property { Array<number> } size - used to show the party's current and maximum size
+     * @property { Array<number> | undefined } size - used to show the party's current and maximum size
      * array of two integers (current_size, max_size)
      */
-    size: Array<number>;
+    size?: Array<number>;
 }

@@ -16,13 +16,13 @@ export interface WelcomeScreenChannel {
     description: string;
 
     /**
-     * @property { Snowflake | undefined } emoji_id - the emoji id, if the emoji is custom
+     * @property { Snowflake | null } emoji_id - the emoji id, if the emoji is custom
      * @see https://discord.com/developers/docs/reference#image-formatting
      */
-    emoji_id?: Snowflake;
+    emoji_id: Snowflake | null;
 
     /**
-     * @property { string | undefined } emoji_name - the emoji name if custom, the unicode character if standard, or null if no emoji is set
+     * @property { string | null } emoji_name - the emoji name if custom, the unicode character if standard, or null if no emoji is set
      */
-    emoji_name?: string;
+    emoji_name: string | null;
 }

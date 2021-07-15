@@ -7,9 +7,9 @@ import { TeamMembers } from './teamMembers';
  */
 export interface Team {
     /**
-     * @property { string | undefined } icon - a hash of the image of the team's icon
+     * @property { string | null } icon - a hash of the image of the team's icon
      */
-    icon?: string;
+    icon: string | null;
 
     /**
      * @property { Snowflake } id - the unique id of the team

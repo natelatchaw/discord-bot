@@ -7,15 +7,15 @@ import { User } from './user';
  */
 export interface Member {
     /**
-     * @property { User } user - the user this guild member represents
+     * @property { User | undefined } user - the user this guild member represents
      * @see https://discord.com/developers/docs/resources/user#user-object
      */
-    user: User;
+    user?: User;
 
     /**
-     * @property { string | undefined } nick - this user's guild nickname
+     * @property { string | undefined | null } nick - this user's guild nickname
      */
-    nick?: string;
+    nick?: string | null;
 
     /**
      * @property { Array<Snowflake> } roles - array of role object ids
@@ -30,11 +30,11 @@ export interface Member {
     joined_at: string;
 
     /**
-     * @property { string | undefined } premium_since - when the user started boosting the guild
+     * @property { string | undefined | null } premium_since - when the user started boosting the guild
      * @see https://support.discord.com/hc/en-us/articles/360028038352-Server-Boosting
      * ISO8601 formatted timestamp
      */
-    premium_since?: string;
+    premium_since?: string | null;
 
     /**
      * @property { boolean } deaf - whether the user is deafened in voice channels
@@ -47,13 +47,13 @@ export interface Member {
     mute: boolean;
 
     /**
-     * @property { boolean } pending - whether the user has not yet passed the guild's Membership Screening requirements
+     * @property { boolean | undefined } pending - whether the user has not yet passed the guild's Membership Screening requirements
      * @see https://discord.com/developers/docs/resources/guild#membership-screening-object
      */
-    pending: boolean;
+    pending?: boolean;
 
     /**
-     * @property { string } permissions - total permissions of the member in the channel, including overwrites, returned when in the interaction object
+     * @property { string | undefined } permissions - total permissions of the member in the channel, including overwrites, returned when in the interaction object
      */
-    permissions: string;
+    permissions?: string;
 }

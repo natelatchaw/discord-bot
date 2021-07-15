@@ -1,10 +1,10 @@
 import { Snowflake } from './snowflake';
 
 /**
- * @interface Stage
+ * @interface StageInstance
  * @see https://discord.com/developers/docs/resources/stage-instance#stage-instance-object
  */
-export interface Stage {
+export interface StageInstance {
     /**
      * @property { Snowflake } id - The id of this Stage instance
      */

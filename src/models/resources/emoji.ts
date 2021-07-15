@@ -8,15 +8,15 @@ import { User } from './user';
  */
 export interface Emoji {
     /**
-     * @property { Snowflake | undefined } id - emoji id
+     * @property { Snowflake | null } id - emoji id
      * @see https://discord.com/developers/docs/reference#image-formatting
      */
-    id?: Snowflake;
+    id: Snowflake | null;
 
     /**
-     * @property { string | undefined } name - emoji name (can be null only in reaction emoji objects)
+     * @property { string | null } name - emoji name (can be null only in reaction emoji objects)
      */
-    name?: string;
+    name: string | null;
 
     /**
      * @property { Array<Role> } roles - roles allowed to use this emoji

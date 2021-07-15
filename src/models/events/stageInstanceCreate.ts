@@ -1,7 +1,7 @@
-import { Stage } from '../resources/stage';
+import { StageInstance } from '../resources/stageInstance';
 
 /**
  * @interface StageInstanceCreate
  * @see https://discord.com/developers/docs/topics/gateway#stage-instance-create
  */
-export interface StageInstanceCreate extends Event, Stage { }
+export interface StageInstanceCreate extends Event, StageInstance { }
