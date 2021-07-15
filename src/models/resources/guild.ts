@@ -5,7 +5,7 @@ import { Member } from './member';
 import { Role } from './role';
 import { Snowflake } from './snowflake';
 import { VoiceState } from './voiceState';
-import { Presence } from './presence';
+import { PresenceUpdate } from '../events/presenceUpdate';
 import { Stage } from './stage';
 import { WelcomeScreen } from './welcomeScreen';
 
@@ -204,7 +204,7 @@ export interface Guild {
      * @property { Array<Presence> } presences - presences of the members in the guild, will only include non-offline members if the size is greater than large threshold
      * @see https://discord.com/developers/docs/topics/gateway#presence-update
      */
-    presences: Array<Presence>
+    presences: Array<PresenceUpdate>
 
     /**
      * @property { number | undefined } max_presences - the maximum number of presences for the guild (null is always returned, apart from the largest of guilds)

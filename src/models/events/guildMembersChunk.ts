@@ -1,5 +1,5 @@
 import { Member } from '../resources/member';
-import { Presence } from '../resources/presence';
+import { PresenceUpdate } from './presenceUpdate';
 import { Snowflake } from '../resources/snowflake';
 
 /**
@@ -37,7 +37,7 @@ export interface GuildMembersChunk extends Event {
      * @property { Array<Presence> | undefined } presences - if passing true to REQUEST_GUILD_MEMBERS, presences of the returned members will be here
      * @see https://discord.com/developers/docs/topics/gateway#presence
      */
-    presences?: Array<Presence>;
+    presences?: Array<PresenceUpdate>;
 
     /**
      * @property { string | undefined } nonce - the nonce used in the Guild Members Request

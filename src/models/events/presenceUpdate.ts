@@ -1,13 +1,13 @@
-import { Activity } from './activity';
-import { ClientStatus } from './clientStatus';
-import { Snowflake } from './snowflake';
-import { User } from './user';
+import { Activity } from '../resources/activity';
+import { ClientStatus } from '../resources/clientStatus';
+import { Snowflake } from '../resources/snowflake';
+import { User } from '../resources/user';
 
 /**
- * @interface Presence
+ * @interface PresenceUpdate
  * @see https://discord.com/developers/docs/topics/gateway#presence-update
  */
-export interface Presence {
+export interface PresenceUpdate extends Event {
     /**
      * @property { User } user - the user presence is being updated for
      * @see https://discord.com/developers/docs/resources/user#user-object
