@@ -1,6 +1,6 @@
 import { Event } from '../event';
-import { Emoji } from '../resources/emoji';
-import { Snowflake } from '../resources/snowflake';
+import { Emoji } from '../objects/emoji';
+import { Snowflake } from '../objects/snowflake';
 
 /**
  * @interface MessageReactionRemove

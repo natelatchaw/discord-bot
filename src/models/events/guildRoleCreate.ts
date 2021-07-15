@@ -1,5 +1,5 @@
-import { Role } from '../resources/role';
-import { Snowflake } from '../resources/snowflake';
+import { Role } from '../objects/role';
+import { Snowflake } from '../objects/snowflake';
 
 /**
  * @interface GuildRoleCreate

@@ -1,5 +1,5 @@
 import { Event } from '../event';
-import { VoiceState } from '../resources/voiceState';
+import { VoiceState } from '../objects/voiceState';
 
 /**
  * @interface VoiceStateUpdate

@@ -1,6 +1,6 @@
-import { Channel } from '../resources/channel';
-import { Snowflake } from '../resources/snowflake';
-import { ThreadMember } from '../resources/threadMember';
+import { Channel } from '../objects/channel';
+import { Snowflake } from '../objects/snowflake';
+import { ThreadMember } from '../objects/threadMember';
 
 /**
  * @interface ThreadListSync

@@ -1,5 +1,5 @@
-import { Snowflake } from '../resources/snowflake';
-import { User } from '../resources/user';
+import { Snowflake } from '../objects/snowflake';
+import { User } from '../objects/user';
 
 /**
  * @interface GuildMemberRemove

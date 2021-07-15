@@ -1,5 +1,5 @@
 import { Event } from '../event';
-import { Guild } from '../resources/guild';
+import { Guild } from '../objects/guild';
 
 /**
  * @interface GuildDelete

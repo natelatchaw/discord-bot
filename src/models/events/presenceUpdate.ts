@@ -1,7 +1,7 @@
-import { Activity } from '../resources/activity';
-import { ClientStatus } from '../resources/clientStatus';
-import { Snowflake } from '../resources/snowflake';
-import { User } from '../resources/user';
+import { Activity } from '../objects/activity';
+import { ClientStatus } from '../objects/clientStatus';
+import { Snowflake } from '../objects/snowflake';
+import { User } from '../objects/user';
 
 /**
  * @interface PresenceUpdate

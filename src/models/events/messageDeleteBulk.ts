@@ -1,5 +1,5 @@
 import { Event } from '../event';
-import { Snowflake } from '../resources/snowflake';
+import { Snowflake } from '../objects/snowflake';
 
 /**
  * @interface MessageDeleteBulk

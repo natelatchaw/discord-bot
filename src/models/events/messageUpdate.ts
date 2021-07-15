@@ -1,4 +1,4 @@
-import { Message } from '../resources/message';
+import { Message } from '../objects/message';
 import { Event } from '../event';
 
 /**

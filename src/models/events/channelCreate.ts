@@ -1,5 +1,5 @@
 import { Event } from '../event';
-import { Channel } from '../resources/channel';
+import { Channel } from '../objects/channel';
 
 /**
  * @interface ChannelCreate

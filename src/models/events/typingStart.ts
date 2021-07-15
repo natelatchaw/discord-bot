@@ -1,5 +1,5 @@
-import { Member } from '../resources/member';
-import { Snowflake } from '../resources/snowflake';
+import { Member } from '../objects/member';
+import { Snowflake } from '../objects/snowflake';
 
 /**
  * @interface TypingStart

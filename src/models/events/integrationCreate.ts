@@ -1,5 +1,5 @@
-import { Integration } from '../resources/integration';
-import { Snowflake } from '../resources/snowflake';
+import { Integration } from '../objects/integration';
+import { Snowflake } from '../objects/snowflake';
 import { Event } from '../event';
 
 /**

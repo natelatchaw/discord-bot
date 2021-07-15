@@ -1,7 +1,7 @@
 import { Event } from '../event';
-import { Application } from '../resources/application';
-import { Guild } from '../resources/guild';
-import { User } from '../resources/user';
+import { Application } from '../objects/application';
+import { Guild } from '../objects/guild';
+import { User } from '../objects/user';
 
 /**
  * @interface Ready

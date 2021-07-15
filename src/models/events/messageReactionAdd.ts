@@ -1,6 +1,6 @@
-import { Emoji } from '../resources/emoji';
-import { Member } from '../resources/member';
-import { Snowflake } from '../resources/snowflake';
+import { Emoji } from '../objects/emoji';
+import { Member } from '../objects/member';
+import { Snowflake } from '../objects/snowflake';
 
 /**
  * @interface MessageReactionAdd

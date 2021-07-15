@@ -1,5 +1,5 @@
 import { Event } from '../event';
-import { User } from '../resources/user';
+import { User } from '../objects/user';
 
 /**
  * @interface UserUpdate

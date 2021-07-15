@@ -1,6 +1,6 @@
 import { EventData } from '../eventData';
 import { GatewayPayload } from '../gatewayPayload';
-import { UpdatePresence } from '../resources/updatePresence';
+import { UpdatePresence } from '../objects/updatePresence';
 
 /**
  * OPCODE 2 IDENTIFY

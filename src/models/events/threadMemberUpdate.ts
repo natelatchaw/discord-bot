@@ -1,4 +1,4 @@
-import { ThreadMember } from '../resources/threadMember';
+import { ThreadMember } from '../objects/threadMember';
 
 /**
  * @interface ThreadMemberUpdate

@@ -1,6 +1,6 @@
-import { Application } from '../resources/application';
-import { Snowflake } from '../resources/snowflake';
-import { User } from '../resources/user';
+import { Application } from '../objects/application';
+import { Snowflake } from '../objects/snowflake';
+import { User } from '../objects/user';
 
 /**
  * @interface InviteCreate

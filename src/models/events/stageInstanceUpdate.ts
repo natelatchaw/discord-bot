@@ -1,4 +1,4 @@
-import { StageInstance } from '../resources/stageInstance';
+import { StageInstance } from '../objects/stageInstance';
 
 /**
  * @interface StageInstanceUpdate

@@ -1,6 +1,6 @@
 import { Event } from '../event';
-import { ApplicationCommand } from '../resources/applicationCommand';
-import { Snowflake } from '../resources/snowflake';
+import { ApplicationCommand } from '../objects/applicationCommand';
+import { Snowflake } from '../objects/snowflake';
 
 /**
  * @interface ApplicationCommandCreate
