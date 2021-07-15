@@ -1,4 +1,4 @@
-// ./models
+// ./
 export { Event } from './event';
 export { EventData } from './eventData';
 export { GatewayPayload } from './gatewayPayload';
